@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply min-h-screen bg-gray-900 text-gray-200;
+        @extend .background;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply flex items-center justify-center gap-2 rounded-full border border-gray-600 bg-gray-700/50 px-6 py-1 text-lg transition-all;
+
+        &:hover {
+            @apply bg-gray-600;
+        }
+    }
+}
+
+// .background {
+//     position: absolute;
+//     top: 0;
+//     z-index: -2;
+//     height: 100vh;
+//     width: 100%;
+//     --tw-bg-opacity: 1;
+//     background-color: rgb(9 9 11 / var(--tw-bg-opacity));
+//     background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), hsla(0, 0%, 100%, 0));
+// }
+
+.background {
+    --tw-bg-opacity: 1;
+    // background-color: rgb(9 9 11 / var(--tw-bg-opacity));
+    // background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(120, 119, 198, 0.3), hsla(0, 0%, 100%, 0));
+    background-image: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(255, 255, 255, 0.13), hsla(0, 0%, 100%, 0));
+
+}
+
+.text-gradient {
+    // background-clip: text;
+    // color: transparent;
+    // background-image: linear-gradient(to bottom, #e5e5e5, #737373);
+    @apply bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent;
+}
