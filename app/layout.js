@@ -1,6 +1,7 @@
 import GithubCorner from '@/components/GithubCorner';
 import './globals.scss';
 import ParticlesJs from '@/components/ParticlesJs';
+import ChartInit from '@/components/ChartInit';
 
 export const metadata = {
     title: 'Create Next App',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body>
+                <ChartInit />
                 <ParticlesJs />
                 <GithubCorner />
                 {children}

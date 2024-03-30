@@ -26,7 +26,7 @@ const getLanguagesData = repos => {
 
 const getCommitsPerRepo = repos => {
     const reposObj = {};
-    repos.forEach(repo => {
+    repos.slice(0, 10).forEach(repo => {
         const commits = repo.defaultBranchRef.target.history.totalCount;
         reposObj[repo.name] = commits;
     });
@@ -35,7 +35,7 @@ const getCommitsPerRepo = repos => {
 
 const getStarsPerRepo = repos => {
     const reposObj = {};
-    repos.forEach(repo => (reposObj[repo.name] = repo.stargazerCount));
+    repos.slice(0, 10).forEach(repo => (reposObj[repo.name] = repo.stargazerCount));
     return reposObj;
 };
 
@@ -52,6 +52,19 @@ const getReposPerLanguages = repos => {
     return languages;
 };
 
+const getStarsPerLanguages = repos => {
+    const languages = {};
+
+    repos.forEach(repo => {
+        repo.languages.edges.forEach(({ node: { name } }) => {
+            if (languages[name]) languages[name] += repo.stargazerCount;
+            else languages[name] = repo.stargazerCount;
+        });
+    });
+
+    return languages;
+};
+
 const fetchAdditionalData = async login => {
     const query = `
     query ($username: String!) {
@@ -59,7 +72,7 @@ const fetchAdditionalData = async login => {
         repositories(
           ownerAffiliations: OWNER
           isFork: false
-          first: 10
+          first: 20
           orderBy: {field: STARGAZERS, direction: DESC}
         ) {
           nodes {
@@ -95,8 +108,9 @@ const fetchAdditionalData = async login => {
     const commitsPerRepo = getCommitsPerRepo(repositories);
     const starsPerRepo = getStarsPerRepo(repositories);
     const reposPerLanguages = getReposPerLanguages(repositories);
+    const starsPerLanguages = getStarsPerLanguages(repositories);
 
-    return { languages, commitsPerRepo, starsPerRepo, reposPerLanguages };
+    return { languages, commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages };
 };
 
 export default fetchAdditionalData;

@@ -41,7 +41,6 @@ const config = {
 };
 
 const ParticlesJs = () => {
-
     const onLoad = () => {
         window.particlesJS('particles-js', config);
     };

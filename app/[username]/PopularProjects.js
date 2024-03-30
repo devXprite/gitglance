@@ -17,7 +17,7 @@ const PopularProjects = ({ projects }) => {
                     </h3>
                     <p className="mb-3 mt-2 line-clamp-3 text-sm font-medium text-gray-400">{project.description}</p>
 
-                    <div className="mt-auto flex items-center gap-5 text-sm font-medium">
+                    <div className="mt-auto flex items-center justify-between md:justify-start gap-4 text-sm font-medium">
                         {/* Language */}
                         <p className="flex items-center gap-2 text-gray-300">
                             <span
@@ -29,16 +29,16 @@ const PopularProjects = ({ projects }) => {
                             <span>{project.primaryLanguage.name}</span>
                         </p>
                         <p className="flex items-center gap-1">
-                            <FaRegStar className="text-base" /> {project.stargazerCount}
+                            <FaRegStar /> {project.stargazerCount}
                         </p>
                         <p className="flex items-center gap-1">
-                            <GoRepoForked className="text-base" /> {project.forkCount}
+                            <GoRepoForked /> {project.forkCount}
+                        </p>
+                        <p className="hidden md:flex items-center gap-1">
+                            <GoIssueOpened /> {project.issues.totalCount}
                         </p>
                         <p className="flex items-center gap-1">
-                            <GoIssueOpened className="text-base" /> {project.issues.totalCount}
-                        </p>
-                        <p className="flex items-center gap-1">
-                            <FaCodePullRequest className="text-base" /> {project.pullRequests.totalCount}
+                            <FaCodePullRequest /> {project.pullRequests.totalCount}
                         </p>
                     </div>
                 </div>

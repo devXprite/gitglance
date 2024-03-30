@@ -9,26 +9,33 @@ import fetchCalendar from '@/utils/fetchCalendar';
 import fetchUserInfo from '@/utils/fetchUserInfo';
 import fetchAdditionalData from '@/utils/fetchAdditionalData';
 import fetchPopularProjects from '@/utils/fetchPopularProjects';
-
+import Charts from './Charts';
 
 const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    const userStats = await fetchStats(username);
-    const userCalendar = await fetchCalendar(username);
-    const popularProjects = await fetchPopularProjects(username);
-    const {languages} = await fetchAdditionalData(username);
-
-    
+    // const userStats = await fetchStats(username);
+    // const userCalendar = await fetchCalendar(username);
+    // const popularProjects = await fetchPopularProjects(username);
+    // const { languages, commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages } =
+    //     await fetchAdditionalData(username);
 
     return (
-        <main className="mx-auto max-w-screen-xl space-y-8 px-2 pb-10 pt-16 md:space-y-16">
+        <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 pt-16 md:space-y-16">
             <UserInfo {...userInfo} />
-            <Stats {...userStats} />
+            {/* <Stats {...userStats} />
             <Languages languages={languages} />
             <PopularProjects projects={popularProjects} />
-            <Calendar contributions={userCalendar} />
+
+            <Charts
+                commitsPerRepo={commitsPerRepo}
+                reposPerLanguages={reposPerLanguages}
+                starsPerRepo={starsPerRepo}
+                starsPerLanguages={starsPerLanguages}
+            />
+
+            <Calendar contributions={userCalendar} /> */}
         </main>
     );
 };
