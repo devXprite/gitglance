@@ -14,6 +14,10 @@ const fetchUserInfo = async login => {
           url
           twitterUsername
           websiteUrl
+          status {
+            emojiHTML
+            message
+          }
           socialAccounts(first: 5) {
             nodes {
               displayName

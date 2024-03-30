@@ -28,23 +28,40 @@ const fetchStats = async login => {
         issues(first: 1) {
           totalCount
         }
-        repositories(first: 1, ownerAffiliations: OWNER) {
-          totalCount
-        }
         organizations(first: 1) {
           totalCount
         }
         sponsoring(first: 1) {
           totalCount
         }
+        sponsors{
+          totalCount
+        }
         createdAt
         updatedAt
+       
+        repositories(
+          first: 100
+          ownerAffiliations: OWNER
+          orderBy: {field: STARGAZERS, direction: DESC}
+        ) {
+          totalCount
+          nodes {
+            stargazerCount
+          }
+        }
       }
     }
     `;
 
+    // repositories(first: 1, ownerAffiliations: OWNER) {
+    //   totalCount
+    // }
+
     const { user } = await githubGraphql({ query, username: login });
-    return { ...user };
+    user['starsEarn'] = user.repositories.nodes.reduce((acc, repo) => acc + repo.stargazerCount, 0);
+
+    return user;
 };
 
 export default fetchStats;
