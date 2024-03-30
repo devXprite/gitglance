@@ -11,8 +11,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: { ...colors.teal, DEFAULT: colors.teal[500] },
-                gray: { ...colors.zinc, DEFAULT: colors.zinc[500] },
+                primary: { ...colors.cyan, DEFAULT: colors.cyan[500] },
+                gray: { ...colors.neutral, DEFAULT: colors.neutral[500] },
             },
         },
     },
