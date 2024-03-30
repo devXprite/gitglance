@@ -22,6 +22,12 @@ const fetchPopularProjects = async login => {
               name
               color
             }
+            issues{
+              totalCount
+            }
+            pullRequests{
+              totalCount
+            }
           }
         }
       }

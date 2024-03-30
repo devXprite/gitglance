@@ -3,11 +3,13 @@
 import GridContainer from '@/components/GridContainer';
 import { VscRepo } from 'react-icons/vsc';
 import { GoRepoForked } from 'react-icons/go';
+import { GoIssueOpened } from "react-icons/go";
 import { FaRegStar } from 'react-icons/fa';
+import { FaCodePullRequest } from "react-icons/fa6";
 
 const PopularProjects = ({ projects }) => {
     return (
-        <GridContainer name="Popular Projects" className={'gap-6 md:grid-cols-3'}>
+        <GridContainer name="Popular Projects" className={'gap-4 md:gap-6 grid-cols-1 md:grid-cols-3'}>
             {projects.map(project => (
                 <div key={project.name} className="box flex flex-col px-4 py-3 text-left">
                     <h3 className="flex items-center gap-2 text-lg font-bold">
@@ -26,13 +28,17 @@ const PopularProjects = ({ projects }) => {
                             ></span>
                             <span>{project.primaryLanguage.name}</span>
                         </p>
-
                         <p className="flex items-center gap-1">
-                            <FaRegStar className='text-base' /> {project.stargazerCount}
+                            <FaRegStar className="text-base" /> {project.stargazerCount}
                         </p>
-
                         <p className="flex items-center gap-1">
-                            <GoRepoForked className='text-base' /> {project.forkCount}
+                            <GoRepoForked className="text-base" /> {project.forkCount}
+                        </p>
+                        <p className="flex items-center gap-1">
+                            <GoIssueOpened className="text-base" /> {project.issues.totalCount}
+                        </p>
+                        <p className="flex items-center gap-1">
+                            <FaCodePullRequest className="text-base" /> {project.pullRequests.totalCount}
                         </p>
                     </div>
                 </div>
