@@ -27,7 +27,7 @@
         @apply cursor-pointer rounded border border-gray-600 select-none bg-gray-700/25 px-3 py-2 text-center shadow-md shadow-gray-900 transition-all duration-300;
 
         &:hover {
-            @apply md:scale-105 border-2 border-gray-300 bg-gray-700 shadow-lg shadow-gray-950;
+            @apply md:scale-105  border-gray-400 bg-gray-700 shadow-lg shadow-gray-950;
         }
     }
 }

@@ -1,6 +1,5 @@
 import Stats from './Stats';
 import Calendar from './Calendar';
-import Languages from './Languages';
 import PopularProjects from './PopularProjects';
 
 import UserInfo from './UserInfo';
@@ -8,6 +7,8 @@ import fetchUserInfo from '@/utils/fetchUserInfo';
 import fetchUserData from '@/utils/fetchUserData';
 import Charts from './Charts';
 import ActivityGraph from './ActivityGraph';
+import TopContributions from './TopContributions';
+import Languages from './Languages';
 
 const page = async ({ params: { username } }) => {
     console.log('Username:', username);
@@ -22,6 +23,7 @@ const page = async ({ params: { username } }) => {
         starsPerLanguages,
         popularRepositories,
         userStats,
+        topContributions,
     } = await fetchUserData(username);
 
     return (
@@ -30,6 +32,7 @@ const page = async ({ params: { username } }) => {
             <Stats stats={userStats} />
             <Languages languages={languagesSize} />
             <PopularProjects projects={popularRepositories} />
+            <TopContributions contributions={topContributions} />
 
             <Charts
                 commitsPerRepo={commitsPerRepo}

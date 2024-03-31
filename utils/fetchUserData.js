@@ -68,10 +68,39 @@ popularRepositories: repositories(
 `;
 
 const contributionsCollectionQuery = `
-contributionsCollection{
-  contributionCalendar{
-    weeks{
-      contributionDays{
+contributionsCollection {
+  pullRequestContributionsByRepository {
+    contributions(last: 10) {
+      totalCount
+      nodes {
+        pullRequest {
+          id
+          title
+          state
+        }
+      }
+    }
+    repository {
+      name
+    description
+    stargazerCount
+    forkCount
+    diskUsage
+    url
+    createdAt
+    primaryLanguage {
+      name
+      color
+    }
+    owner{
+      avatarUrl(size: 50)
+      login
+    }
+    }
+  }
+  contributionCalendar {
+    weeks {
+      contributionDays {
         contributionCount
         contributionLevel
         date
@@ -160,7 +189,10 @@ const fetchUserData = async login => {
     const popularRepositories = user.popularRepositories.nodes;
     const userStats = getUserStats(user);
 
-    console.log(rateLimit);
+    const topContributions = user.contributionsCollection.pullRequestContributionsByRepository
+        .filter(contribution => contribution.repository.owner.login !== login)
+        .splice(0, 9);
+
 
     return {
         languagesSize,
@@ -170,6 +202,7 @@ const fetchUserData = async login => {
         starsPerLanguages,
         popularRepositories,
         contributionCalendar,
+        topContributions,
         userStats,
     };
 };

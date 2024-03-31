@@ -1,7 +1,7 @@
 const getUserStats = userData => {
     const stats = {
         Followers: userData.followers.totalCount,
-        Repositories: userData.repositories.totalCount,
+        Repositories: userData.repositoriesWithStargazerCount.totalCount,
         Organizations: userData.organizations.totalCount,
         Gists: userData.gists.totalCount,
         'Pull Requests': userData.pullRequests.totalCount,
