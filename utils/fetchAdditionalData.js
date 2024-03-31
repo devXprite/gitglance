@@ -26,8 +26,8 @@ const getLanguagesData = repos => {
 
 const getCommitsPerRepo = repos => {
     const reposObj = {};
-    repos.slice(0, 10).forEach(repo => {
-        const commits = repo.defaultBranchRef.target.history.totalCount;
+    repos.slice(0, 25).forEach(repo => {
+        const commits = repo.defaultBranchRef?.target?.history?.totalCount;
         reposObj[repo.name] = commits;
     });
     return reposObj;
@@ -35,7 +35,7 @@ const getCommitsPerRepo = repos => {
 
 const getStarsPerRepo = repos => {
     const reposObj = {};
-    repos.slice(0, 10).forEach(repo => (reposObj[repo.name] = repo.stargazerCount));
+    repos.slice(0, 25).forEach(repo => (reposObj[repo.name] = repo.stargazerCount));
     return reposObj;
 };
 
@@ -72,7 +72,7 @@ const fetchAdditionalData = async login => {
         repositories(
           ownerAffiliations: OWNER
           isFork: false
-          first: 20
+          first: 50
           orderBy: {field: STARGAZERS, direction: DESC}
         ) {
           nodes {

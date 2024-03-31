@@ -3,6 +3,16 @@
 import GridContainer from '@/components/GridContainer';
 import { Doughnut } from 'react-chartjs-2';
 
+const borderColor = [
+    'rgb(255, 99, 132)',
+    'rgb(255, 159, 64)',
+    'rgb(255, 205, 86)',
+    'rgb(75, 192, 192)',
+    'rgb(54, 162, 235)',
+    'rgb(153, 102, 255)',
+    'rgb(201, 203, 207)',
+];
+
 const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages }) => {
     return (
         <GridContainer name="Charts" className={'grid-cols-2 gap-0 gap-y-6 md:grid-cols-4 md:gap-8 '}>
@@ -16,6 +26,7 @@ const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLangu
                             {
                                 label: 'Commits',
                                 data: Object.values(commitsPerRepo),
+                                borderColor: borderColor,
                             },
                         ],
                     }}
@@ -32,6 +43,7 @@ const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLangu
                             {
                                 label: 'Stars',
                                 data: Object.values(starsPerRepo),
+                                borderColor: borderColor,
                             },
                         ],
                     }}
@@ -48,6 +60,7 @@ const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLangu
                             {
                                 label: 'Repo',
                                 data: Object.values(reposPerLanguages),
+                                borderColor: borderColor,
                             },
                         ],
                     }}
@@ -64,6 +77,7 @@ const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLangu
                             {
                                 label: 'Stars',
                                 data: Object.values(starsPerLanguages),
+                                borderColor: borderColor,
                             },
                         ],
                     }}

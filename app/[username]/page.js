@@ -10,21 +10,22 @@ import fetchUserInfo from '@/utils/fetchUserInfo';
 import fetchAdditionalData from '@/utils/fetchAdditionalData';
 import fetchPopularProjects from '@/utils/fetchPopularProjects';
 import Charts from './Charts';
+import ActivityGraph from './ActivityGraph';
 
 const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    // const userStats = await fetchStats(username);
-    // const userCalendar = await fetchCalendar(username);
-    // const popularProjects = await fetchPopularProjects(username);
-    // const { languages, commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages } =
-    //     await fetchAdditionalData(username);
+    const userStats = await fetchStats(username);
+    const userCalendar = await fetchCalendar(username);
+    const popularProjects = await fetchPopularProjects(username);
+    const { languages, commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages } =
+        await fetchAdditionalData(username);
 
     return (
         <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 pt-16 md:space-y-16">
             <UserInfo {...userInfo} />
-            {/* <Stats {...userStats} />
+            <Stats {...userStats} />
             <Languages languages={languages} />
             <PopularProjects projects={popularProjects} />
 
@@ -34,8 +35,8 @@ const page = async ({ params: { username } }) => {
                 starsPerRepo={starsPerRepo}
                 starsPerLanguages={starsPerLanguages}
             />
-
-            <Calendar contributions={userCalendar} /> */}
+            <ActivityGraph activity={userCalendar} />
+            <Calendar contributions={userCalendar} />
         </main>
     );
 };

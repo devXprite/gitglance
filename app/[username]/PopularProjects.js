@@ -23,10 +23,10 @@ const PopularProjects = ({ projects }) => {
                             <span
                                 className="size-3 rounded-full"
                                 style={{
-                                    backgroundColor: project.primaryLanguage?.color,
+                                    backgroundColor: project.primaryLanguage?.color || '#ccc',
                                 }}
                             ></span>
-                            <span>{project.primaryLanguage.name}</span>
+                            <span>{project.primaryLanguage?.name || 'Unknown'}</span>
                         </p>
                         <p className="flex items-center gap-1">
                             <FaRegStar /> {project.stargazerCount}
