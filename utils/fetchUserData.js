@@ -1,6 +1,7 @@
 import githubGraphql from './githubGraphql';
 import getCommitsPerRepo from './parse/getCommitsPerRepo';
 import getContributionCalendar from './parse/getContributionCalendar';
+import getFollowUp from './parse/getFollowUp';
 import getLanguageSize from './parse/getLanguageSize';
 import getReposPerLanguage from './parse/getReposPerLanguage';
 import getStarsPerLanguage from './parse/getStarsPerLanguage';
@@ -158,15 +159,71 @@ const userStatsQuery = `
   }
 `;
 
+const followupQuery = login => {
+    return `
+  issues_open_by:search(query: "is:issue author:${login} is:open", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_drafts_by:search(query: "is:issue author:${login} draft:true", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_skipped_by:search(query: "is:issue author:${login} is:closed label:wontfix,duplicate", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_closed_by:search(query: "is:issue author:${login} is:closed", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_open_by:search(query: "is:pr author:${login} is:open draft:false", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_drafts_by:search(query: "is:pr author:${login} draft:true", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_closed_by:search(query: "is:pr author:${login} is:unmerged is:closed draft:false", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_merged_by:search(query: "is:pr author:${login} is:merged", type: ISSUE, first: 0) {
+    issueCount
+  }
+
+  issues_open_on:search(query: "user:${login} is:issue is:open", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_drafts_on:search(query: "user:${login} is:issue draft:true", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_skipped_on:search(query: "user:${login} is:issue is:closed label:wontfix,duplicate", type: ISSUE, first: 0) {
+    issueCount
+  }
+  issues_closed_on:search(query: "user:${login} is:issue is:closed", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_open_on:search(query: "user:${login} is:pr is:open draft:false", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_drafts_on:search(query: "user:${login} is:pr draft:true", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_closed_on:search(query: "user:${login} is:pr is:unmerged is:closed draft:false", type: ISSUE, first: 0) {
+    issueCount
+  }
+  pr_merged_on:search(query: "user:${login} is:pr is:merged", type: ISSUE, first: 0) {
+    issueCount
+  }
+
+  `;
+};
+
 const fetchUserData = async login => {
     const query = `
     query ($username: String!) {
       user(login: $username) {
-      ${userStatsQuery}
-      ${repositoriesQuery}
-      ${popularRepositoriesQuery}
-      ${contributionsCollectionQuery}
+        ${userStatsQuery}
+        ${repositoriesQuery}
+        ${popularRepositoriesQuery}
+        ${contributionsCollectionQuery}
       }
+      ${followupQuery(login)}
       rateLimit{
         cost
         limit
@@ -177,7 +234,7 @@ const fetchUserData = async login => {
     }
     `;
 
-    const { user, rateLimit } = await githubGraphql({ query, username: login });
+    const { user, rateLimit, ...response } = await githubGraphql({ query, username: login });
     const repositories = user.repositories.nodes;
 
     const languagesSize = getLanguageSize(repositories);
@@ -188,11 +245,11 @@ const fetchUserData = async login => {
     const contributionCalendar = getContributionCalendar(user.contributionsCollection);
     const popularRepositories = user.popularRepositories.nodes;
     const userStats = getUserStats(user);
+    const followUp = getFollowUp(response, login);
 
     const topContributions = user.contributionsCollection.pullRequestContributionsByRepository
         .filter(contribution => contribution.repository.owner.login !== login)
         .splice(0, 9);
-
 
     return {
         languagesSize,
@@ -204,6 +261,7 @@ const fetchUserData = async login => {
         contributionCalendar,
         topContributions,
         userStats,
+        followUp,
     };
 };
 
