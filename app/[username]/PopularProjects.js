@@ -1,5 +1,3 @@
-'use client';
-
 import GridContainer from '@/components/GridContainer';
 import { VscRepo } from 'react-icons/vsc';
 import { GoRepoForked } from 'react-icons/go';

@@ -7,9 +7,10 @@ import GridContainer from '@/components/GridContainer';
 const Calendar = ({ contributions }) => {
     return (
         <GridContainer name="Contributions Calendar" className={'block overflow-x-auto'}>
-            <div className="grid grid-flow-col grid-rows-7 gap-1 gap-x-[3px] lg:gap-1.5 w-[40rem] md:w-auto">
+            <div className="grid w-[40rem] grid-flow-col grid-rows-7 gap-1 gap-x-[3px] md:w-auto lg:gap-1.5">
                 {contributions.map((contribution, i) => (
                     <Tippy
+                        key={i}
                         theme={'material'}
                         content={
                             <p className="[&>span]:font-bold ">

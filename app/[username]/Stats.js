@@ -3,21 +3,7 @@
 import GridContainer from '@/components/GridContainer';
 import CountUp from 'react-countup';
 
-const Stats = props => {
-    const stats = {
-        Followers: props.followers.totalCount,
-        "Stars Earned": props.starsEarn,
-        Repositories: props.repositories.totalCount,
-        Organizations: props.organizations.totalCount,
-        Gists: props.gists.totalCount,
-        "Pull Requests": props.pullRequests.totalCount,
-        Issues: props.issues.totalCount,
-        Commits: props.contributionsCollection.totalCommitContributions,
-        Issues: props.issues.totalCount,
-        Sponsors: props.sponsors.totalCount,
-        "Contributed To": props.repositoriesContributedTo.totalCount,
-    };
-
+const Stats = ({ stats }) => {
     return (
         <GridContainer name="GitHub Stats">
             {Object.keys(stats).map(key => (

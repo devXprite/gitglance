@@ -4,11 +4,8 @@ import Languages from './Languages';
 import PopularProjects from './PopularProjects';
 
 import UserInfo from './UserInfo';
-import fetchStats from '@/utils/fetchStats';
-import fetchCalendar from '@/utils/fetchCalendar';
 import fetchUserInfo from '@/utils/fetchUserInfo';
-import fetchAdditionalData from '@/utils/fetchAdditionalData';
-import fetchPopularProjects from '@/utils/fetchPopularProjects';
+import fetchUserData from '@/utils/fetchUserData';
 import Charts from './Charts';
 import ActivityGraph from './ActivityGraph';
 
@@ -16,18 +13,23 @@ const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    const userStats = await fetchStats(username);
-    const userCalendar = await fetchCalendar(username);
-    const popularProjects = await fetchPopularProjects(username);
-    const { languages, commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages } =
-        await fetchAdditionalData(username);
+    const {
+        languagesSize,
+        contributionCalendar,
+        commitsPerRepo,
+        starsPerRepo,
+        reposPerLanguages,
+        starsPerLanguages,
+        popularRepositories,
+        userStats,
+    } = await fetchUserData(username);
 
     return (
         <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 pt-16 md:space-y-16">
             <UserInfo {...userInfo} />
-            <Stats {...userStats} />
-            <Languages languages={languages} />
-            <PopularProjects projects={popularProjects} />
+            <Stats stats={userStats} />
+            <Languages languages={languagesSize} />
+            <PopularProjects projects={popularRepositories} />
 
             <Charts
                 commitsPerRepo={commitsPerRepo}
@@ -35,8 +37,8 @@ const page = async ({ params: { username } }) => {
                 starsPerRepo={starsPerRepo}
                 starsPerLanguages={starsPerLanguages}
             />
-            <ActivityGraph activity={userCalendar} />
-            <Calendar contributions={userCalendar} />
+            <ActivityGraph activity={contributionCalendar} />
+            <Calendar contributions={contributionCalendar} />
         </main>
     );
 };

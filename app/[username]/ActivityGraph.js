@@ -1,7 +1,15 @@
 'use client';
 
 import GridContainer from '@/components/GridContainer';
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+
+const graphConfig = {
+    backgroundColor: 'rgba(256, 256, 256, 0.3)',
+    borderColor: 'rgba(256, 256, 256, 0.6)',
+    hoverBackgroundColor: 'rgba(256, 256, 256, 0.8)',
+    borderWidth: 1,
+    label: 'Commits',
+};
 
 const ActivityGraph = ({ activity }) => {
     const monthlyActivity = activity.reduce((acc, curr) => {
@@ -19,29 +27,22 @@ const ActivityGraph = ({ activity }) => {
     }, []);
 
     return (
-        <GridContainer name="Activity Graph" className={'grid-cols-1 md:grid-cols-2 gap-x-10'}>
-          
-
+        <GridContainer name="Activity Graph" className={'grid-cols-1 gap-x-10 md:grid-cols-2'}>
             <div className="">
                 <Bar
                     options={{
-                        borderColor: 'rgba(256, 256, 256, 1)',
                         plugins: {
-                            title:{
+                            title: {
                                 text: 'Monthly Activity (1 year)',
-                            }
-                        }
+                            },
+                        },
                     }}
                     data={{
                         labels: Object.keys(monthlyActivity),
                         datasets: [
                             {
-                                label: 'Commits',
                                 data: Object.values(monthlyActivity),
-
-                                backgroundColor: 'rgba(256, 256, 256, 0.4)',
-                                borderColor: 'rgba(256, 256, 256, 0.8)',
-                                borderWidth: 1,
+                                ...graphConfig,
                             },
                         ],
                     }}
@@ -51,23 +52,18 @@ const ActivityGraph = ({ activity }) => {
                 <Bar
                     title="Activity Graph"
                     options={{
-                        borderColor: 'rgba(256, 256, 256, 1)',
                         plugins: {
-                            title:{
+                            title: {
                                 text: 'Weekly Activity (1 Year)',
-                            }
-                        }
+                            },
+                        },
                     }}
                     data={{
                         labels: Object.keys(weekDaysActivity),
                         datasets: [
                             {
-                                label: 'Commits',
                                 data: Object.values(weekDaysActivity),
-
-                                backgroundColor: 'rgba(256, 256, 256, 0.4)',
-                                borderColor: 'rgba(256, 256, 256, 0.8)',
-                                borderWidth: 1,
+                                ...graphConfig,
                             },
                         ],
                     }}
