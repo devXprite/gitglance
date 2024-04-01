@@ -27,7 +27,7 @@ const getFollowUp = (response, login) => {
         },
     };
 
-    console.log(followUp);
+    // console.log(followUp);
 
     return followUp;
 };

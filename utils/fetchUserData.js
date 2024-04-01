@@ -12,7 +12,7 @@ const repositoriesQuery = `
   repositories(
     ownerAffiliations: OWNER
     isFork: false
-    first: 25
+    first: 10
     orderBy: {field: STARGAZERS, direction: DESC}
   ) {
     nodes {

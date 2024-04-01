@@ -56,8 +56,6 @@ const TopContributions = ({ contributions }) => {
                     </ul>
                 </div>
             ))}
-
-           
         </GridContainer>
     );
 };

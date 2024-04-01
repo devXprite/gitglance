@@ -13,6 +13,9 @@ const borderColor = [
     'rgb(201, 203, 207)',
 ];
 
+// const borderColor = []
+// for (let i = 30; i <= 100; i += 5) borderColor.push(`hsla(0, 0%, ${i}%, 1)`);
+
 const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages }) => {
     return (
         <GridContainer name="Charts" className={'grid-cols-2 gap-0 gap-y-6 px-6 md:grid-cols-4 md:gap-8 '}>

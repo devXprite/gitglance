@@ -11,11 +11,17 @@ import TopContributions from './TopContributions';
 import Languages from './Languages';
 import RecentActivity from './RecentActivity';
 import FollowUp from './FollowUp';
+import fetchActivity from '@/utils/fetchActivity';
 
 const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
+    const userActivity = await fetchActivity(username);
+    
+    // TO DO: Add Social Profiles
+
+    
     const {
         languagesSize,
         contributionCalendar,
@@ -36,7 +42,6 @@ const page = async ({ params: { username } }) => {
             <Languages languages={languagesSize} />
             <PopularProjects projects={popularRepositories} />
             <TopContributions contributions={topContributions} />
-            <RecentActivity />
 
             <Charts
                 commitsPerRepo={commitsPerRepo}
@@ -47,6 +52,7 @@ const page = async ({ params: { username } }) => {
             <FollowUp follwoup={followUp} />
             <ActivityGraph activity={contributionCalendar} />
             <Calendar contributions={contributionCalendar} />
+            <RecentActivity activity={userActivity} />
         </main>
     );
 };
