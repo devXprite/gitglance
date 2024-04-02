@@ -1,14 +1,24 @@
-import { graphql } from "@octokit/graphql";
+import axios from 'axios';
 
-const githubGraphql = async ({ query, username }) => {
-    const response = await graphql(query, {
-        username,
-        headers: {
-            authorization: `token ${process.env.GITHUB_TOKEN}`,
-        },
+const githubGraphql = ({ query, variables }) => {
+    return new Promise((resolve, reject) => {
+        axios.post(
+            'https://api.github.com/graphql',
+            { query, variables },
+            {
+                headers: {
+                    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                    Accept: 'application/vnd.github+json',
+                },
+            },
+        ).then(response => {
+            resolve(response.data.data);
+        }).catch(error => {
+            console.log(error);
+            reject(error);
+        });
+
     });
-
-    return response;
 };
 
 export default githubGraphql;

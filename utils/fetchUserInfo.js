@@ -1,6 +1,7 @@
+import axios from 'axios';
 import githubGraphql from './githubGraphql';
 
-const fetchUserInfo = async login => {
+const fetchUserInfo = async username => {
     const query = `
     query ($username: String!) {
         user(login: $username) {
@@ -32,8 +33,13 @@ const fetchUserInfo = async login => {
       }
     `;
 
-    const { user } = await githubGraphql({ query, username: login });
-    return { ...user, username: login };
+    try {
+        const response = await githubGraphql({ query, variables: { username } });
+        return response?.user
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
 };
 
 export default fetchUserInfo;

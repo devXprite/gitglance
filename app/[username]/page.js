@@ -12,16 +12,22 @@ import Languages from './Languages';
 import RecentActivity from './RecentActivity';
 import FollowUp from './FollowUp';
 import fetchActivity from '@/utils/fetchActivity';
+import { notFound } from 'next/navigation';
 
 const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    const userActivity = await fetchActivity(username);
-    
-    // TO DO: Add Social Profiles
 
-    
+    console.log('User Info:');
+    console.log(userInfo);
+
+    if (!userInfo) {
+        return notFound()
+    }
+
+    const userActivity = await fetchActivity(username);
+
     const {
         languagesSize,
         contributionCalendar,
@@ -37,7 +43,7 @@ const page = async ({ params: { username } }) => {
 
     return (
         <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 pt-16 md:space-y-16">
-            <UserInfo {...userInfo} />
+            <UserInfo username={username} {...userInfo} />
             <Stats stats={userStats} />
             <Languages languages={languagesSize} />
             <PopularProjects projects={popularRepositories} />

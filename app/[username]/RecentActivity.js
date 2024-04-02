@@ -99,7 +99,7 @@ const RecentActivity = ({ activity }) => {
                     <div className="box text-left hover:scale-100">
                         <p className="text-sm text-gray-400">{new Date(event.timestamp).toLocaleString()}</p>
 
-                        <div className="mt-2.5 text-lg font-medium text-gray-200 [&_a]:text-cyan-500">
+                        <div className="mt-2.5 md:text-lg font-medium text-gray-200 [&_a]:text-cyan-500">
                             <Activity event={event} />
                         </div>
                     </div>

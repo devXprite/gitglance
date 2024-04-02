@@ -113,7 +113,7 @@ const fetchActivity = async login => {
         .filter(Boolean)
         .splice(0, 14);
 
-    console.log(activity);
+    // console.log(activity);
 
     return activity;
 };

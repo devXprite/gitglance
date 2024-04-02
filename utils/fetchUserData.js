@@ -234,7 +234,7 @@ const fetchUserData = async login => {
     }
     `;
 
-    const { user, rateLimit, ...response } = await githubGraphql({ query, username: login });
+    const { user, rateLimit, ...response } = await githubGraphql({ query, variables: { username: login } });
     const repositories = user.repositories.nodes;
 
     const languagesSize = getLanguageSize(repositories);
