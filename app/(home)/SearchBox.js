@@ -4,7 +4,7 @@ const SearchBox = ({ formAction }) => {
     return (
         <form
             action={formAction}
-            className="group mx-auto mt-20 flex max-w-screen-sm items-center gap-3 overflow-hidden rounded-md border-2 border-gray-600 bg-gray-900 focus-within:border-gray-300 md:mt-28"
+            className="group mx-auto flex max-w-screen-sm items-center gap-3 overflow-hidden rounded-md border-2 border-gray-600 bg-gray-900 focus-within:border-gray-300 md:mt-28"
         >
             <input
                 className="block flex-1 bg-transparent pl-4 text-lg outline-none"

@@ -29,6 +29,9 @@ const fetchUserInfo = async username => {
           followers {
             totalCount
           }
+          following {
+            totalCount
+          }
         }
       }
     `;

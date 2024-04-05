@@ -13,18 +13,36 @@ import RecentActivity from './RecentActivity';
 import FollowUp from './FollowUp';
 import fetchActivity from '@/utils/fetchActivity';
 import { notFound } from 'next/navigation';
+import RecentProfiles from '@/models/RecentProfiles';
+import connectDb from '@/lib/connectDb';
+
+// meta data
+// export const genrateMeta = ({ params: { username } }) => {
+//     return {
+//         title: `${username} - GitHub Profile`,
+//         description: `GitHub profile of ${username}`,
+//     };
+// };
 
 const page = async ({ params: { username } }) => {
+    await connectDb();
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-
-    console.log('User Info:');
     console.log(userInfo);
+    if (!userInfo) return notFound();
 
-    if (!userInfo) {
-        return notFound()
-    }
+    await RecentProfiles.findOneAndUpdate(
+        { username },
+        {
+            name: userInfo.name ?? userInfo.username,
+            username: userInfo.username,
+            following: userInfo.following.totalCount,
+            followers: userInfo.followers.totalCount,
+            avatarUrl: userInfo.avatarUrl,
+        },
+        { upsert: true, new: true, setDefaultsOnInsert: true },
+    );
 
     const userActivity = await fetchActivity(username);
 
