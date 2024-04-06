@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@next/third-parties':
+    specifier: ^14.1.4
+    version: 14.1.4(next@14.1.4)(react@18.2.0)
   '@octokit/graphql':
     specifier: ^8.0.1
     version: 8.0.1
@@ -17,36 +20,24 @@ dependencies:
   chart.js:
     specifier: ^4.0.0
     version: 4.4.2
-  mongodb:
-    specifier: ^6.5.0
-    version: 6.5.0
   mongoose:
     specifier: ^8.1.3
     version: 8.1.3
   next:
     specifier: 14.1.4
     version: 14.1.4(react-dom@18.2.0)(react@18.2.0)(sass@1.72.0)
-  randomcolor:
-    specifier: ^0.6.2
-    version: 0.6.2
   react:
     specifier: ^18
     version: 18.2.0
   react-chartjs-2:
     specifier: ^5.0.0
     version: 5.2.0(chart.js@4.4.2)(react@18.2.0)
-  react-countup:
-    specifier: ^6.5.3
-    version: 6.5.3(react@18.2.0)
   react-dom:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
   react-icons:
     specifier: ^5.0.1
     version: 5.0.1(react@18.2.0)
-  react-tooltip:
-    specifier: ^5.26.3
-    version: 5.26.3(react-dom@18.2.0)(react@18.2.0)
   sass:
     specifier: ^1.72.0
     version: 1.72.0
@@ -80,23 +71,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: false
-
-  /@floating-ui/core@1.6.0:
-    resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
-    dependencies:
-      '@floating-ui/utils': 0.2.1
-    dev: false
-
-  /@floating-ui/dom@1.6.3:
-    resolution: {integrity: sha512-RnDthu3mzPlQ31Ss/BTwQ1zjzIhr3lk1gZB1OC56h/1vEtaXkESrOqL5fQVMfXpwGtRwX+YsZBdyHtJMQnkArw==}
-    dependencies:
-      '@floating-ui/core': 1.6.0
-      '@floating-ui/utils': 0.2.1
-    dev: false
-
-  /@floating-ui/utils@0.2.1:
-    resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: false
 
   /@isaacs/cliui@8.0.2:
@@ -235,6 +209,17 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@next/third-parties@14.1.4(next@14.1.4)(react@18.2.0):
+    resolution: {integrity: sha512-e/kpEFq5/ZPhHkxpJkvhMfLp3OC6KCBou0/BV8BvgjXAPgEo6sa0ZXe0l4ZEb3wcA7NIEHIpqCmjU5Z7QAHcKQ==}
+    peerDependencies:
+      next: ^13.0.0 || ^14.0.0
+      react: ^18.2.0
+    dependencies:
+      next: 14.1.4(react-dom@18.2.0)(react@18.2.0)(sass@1.72.0)
+      react: 18.2.0
+      third-party-capital: 1.0.20
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -478,10 +463,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /classnames@2.5.1:
-    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
-    dev: false
-
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
@@ -508,10 +489,6 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
     dev: true
-
-  /countup.js@2.8.0:
-    resolution: {integrity: sha512-f7xEhX0awl4NOElHulrl4XRfKoNH3rB+qfNSZZyjSZhaAoUk6elvhH+MNxMmlmuUJ2/QNTWPSA7U4mNtIAKljQ==}
-    dev: false
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -813,38 +790,6 @@ packages:
 
   /mongodb@6.3.0:
     resolution: {integrity: sha512-tt0KuGjGtLUhLoU263+xvQmPHEGTw5LbcNC73EoFRYgSHwZt5tsoJC110hDyO1kjQzpgNrpdcSza9PknWN4LrA==}
-    engines: {node: '>=16.20.1'}
-    peerDependencies:
-      '@aws-sdk/credential-providers': ^3.188.0
-      '@mongodb-js/zstd': ^1.1.0
-      gcp-metadata: ^5.2.0
-      kerberos: ^2.0.1
-      mongodb-client-encryption: '>=6.0.0 <7'
-      snappy: ^7.2.2
-      socks: ^2.7.1
-    peerDependenciesMeta:
-      '@aws-sdk/credential-providers':
-        optional: true
-      '@mongodb-js/zstd':
-        optional: true
-      gcp-metadata:
-        optional: true
-      kerberos:
-        optional: true
-      mongodb-client-encryption:
-        optional: true
-      snappy:
-        optional: true
-      socks:
-        optional: true
-    dependencies:
-      '@mongodb-js/saslprep': 1.1.5
-      bson: 6.5.0
-      mongodb-connection-string-url: 3.0.0
-    dev: false
-
-  /mongodb@6.5.0:
-    resolution: {integrity: sha512-Fozq68InT+JKABGLqctgtb8P56pRrJFkbhW0ux+x1mdHeyinor8oNzJqwLjV/t5X5nJGfTlluxfyMnOXNggIUA==}
     engines: {node: '>=16.20.1'}
     peerDependencies:
       '@aws-sdk/credential-providers': ^3.188.0
@@ -1182,10 +1127,6 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
-  /randomcolor@0.6.2:
-    resolution: {integrity: sha512-Mn6TbyYpFgwFuQ8KJKqf3bqqY9O1y37/0jgSK/61PUxV4QfIMv0+K2ioq8DfOjkBslcjwSzRfIDEXfzA9aCx7A==}
-    dev: false
-
   /react-chartjs-2@5.2.0(chart.js@4.4.2)(react@18.2.0):
     resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
     peerDependencies:
@@ -1193,15 +1134,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       chart.js: 4.4.2
-      react: 18.2.0
-    dev: false
-
-  /react-countup@6.5.3(react@18.2.0):
-    resolution: {integrity: sha512-udnqVQitxC7QWADSPDOxVWULkLvKUWrDapn5i53HE4DPRVgs+Y5rr4bo25qEl8jSh+0l2cToJgGMx+clxPM3+w==}
-    peerDependencies:
-      react: '>= 16.3.0'
-    dependencies:
-      countup.js: 2.8.0
       react: 18.2.0
     dev: false
 
@@ -1221,18 +1153,6 @@ packages:
       react: '*'
     dependencies:
       react: 18.2.0
-    dev: false
-
-  /react-tooltip@5.26.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MpYAws8CEHUd/RC4GaDCdoceph/T4KHM5vS5Dbk8FOmLMvvIht2ymP2htWdrke7K6lqPO8rz8+bnwWUIXeDlzg==}
-    peerDependencies:
-      react: '>=16.14.0'
-      react-dom: '>=16.14.0'
-    dependencies:
-      '@floating-ui/dom': 1.6.3
-      classnames: 2.5.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:
@@ -1447,6 +1367,10 @@ packages:
     dependencies:
       any-promise: 1.3.0
     dev: true
+
+  /third-party-capital@1.0.20:
+    resolution: {integrity: sha512-oB7yIimd8SuGptespDAZnNkzIz+NWaJCu2RMsbs4Wmp9zSDUM8Nhi3s2OOcqYuv3mN4hitXc8DVx+LyUmbUDiA==}
+    dev: false
 
   /tippy.js@6.3.7:
     resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}

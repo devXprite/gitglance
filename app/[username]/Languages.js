@@ -1,8 +1,5 @@
-'use client';
-
 import GridContainer from '@/components/GridContainer';
 import LanguageIcon from '@/components/LanguageIcon';
-import CountUp from 'react-countup';
 
 const Languages = ({ languages }) => {
     return (
@@ -15,10 +12,10 @@ const Languages = ({ languages }) => {
                     />
                     <div>
                         <p className="font-[Electrolize] text-base font-bold md:text-xl">
-                            <CountUp start={0} end={size} decimals={2} />
+                            {size}
                             <span className="ml-1 text-sm md:text-lg">%</span>
                         </p>
-                        <h5 className="-mt-1 text-gray-400 text-sm md:text-base">{name}</h5>
+                        <h5 className="-mt-1 text-sm text-gray-400 md:text-base">{name}</h5>
                     </div>
                 </div>
             ))}

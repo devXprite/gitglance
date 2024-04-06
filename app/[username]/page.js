@@ -17,10 +17,15 @@ import RecentProfiles from '@/models/RecentProfiles';
 import connectDb from '@/lib/connectDb';
 
 // meta data
-export const generateMetadata = ({ params: { username } }) => {
+export const generateMetadata = async ({ params: { username } }) => {
+    await connectDb();
+    const userInfo = await fetchUserInfo(username);
     return {
         title: `${username} - GitHub Profile`,
-        description: `GitHub profile of ${username}`,
+        description: `${username} is a developer on GitHub with ${userInfo.followers.totalCount} followers and ${userInfo.repositories.totalCount} repositories.`,
+        openGraph: {
+            images: userInfo.avatarUrl,
+        },
     };
 };
 

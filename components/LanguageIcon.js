@@ -1,5 +1,6 @@
-const LanguageIcon = ({ name, className }) => {
+'use client';
 
+const LanguageIcon = ({ name, className }) => {
     const namesToUpdate = {
         SCSS: 'SASS',
         'C++': 'CPP',

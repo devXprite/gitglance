@@ -17,9 +17,9 @@ export default async function Home() {
 
     return (
         <main className="px-4">
-            <div className="mx-auto max-w-screen-md pt-[15vh] text-center md:pt-[18vh]">
+            <div className="mx-auto max-w-screen-md pt-[15vh] text-center md:pt-[16vh]">
                 <h1 className="text-gradient text-4xl font-bold md:text-7xl">Git Glance</h1>
-                <p className="text-gradient mb-16 mt-2 text-xl font-medium md:mb-20 md:text-3xl ">
+                <p className="text-gradient mb-16 mt-2 text-xl font-medium md:text-3xl ">
                     Visualize Your GitHub Profile
                 </p>
 
@@ -50,7 +50,7 @@ export default async function Home() {
                     ))}
                 </div>
             </div> */}
-            <div className="mx-auto mt-32 max-w-screen-xl md:mt-40">
+            <div className="mx-auto mt-32 max-w-screen-xl md:mt-36">
                 <GridContainer
                     className={'grid-cols-1 gap-3 md:grid-cols-4'}
                     name={'Recent Profiles'}

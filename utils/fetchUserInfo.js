@@ -31,6 +31,12 @@ const fetchUserInfo = async username => {
           following {
             totalCount
           }
+          repositories(
+            first: 1
+            ownerAffiliations: OWNER
+          ) {
+            totalCount
+          }
         }
       }
     `;
