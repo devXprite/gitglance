@@ -7,14 +7,14 @@ const UserInfo = props => {
                 <div className="relative size-36 flex-none rounded-full border-[4px] border-gray-600 md:size-48">
                     <img className="rounded-full" src={props.avatarUrl} alt={props.name} />
 
-                    {/* {props.status && (
+                    {props.status && (
                         <div className="absolute bottom-[10%] right-[10%] translate-x-1/2 ">
                             <p
-                                className="grid size-10 place-items-center rounded-full border border-gray-600 bg-gray-700 md:size-12"
+                                className="grid size-10 place-items-center rounded-full border border-gray-600 bg-gray-800 text-xl md:text-2xl md:size-12"
                                 dangerouslySetInnerHTML={{ __html: props.status.emojiHTML }}
                             ></p>
                         </div>
-                    )} */}
+                    )}
                 </div>
 
                 <div className="flex h-full flex-col text-center md:text-left">
@@ -35,7 +35,7 @@ const UserInfo = props => {
                         </span>
                     </p>
 
-                    <p className="mt-auto md:line-clamp-2 text-gray-300 md:max-w-lg">{props.bio}</p>
+                    <p className="mt-auto md:line-clamp-2 md:text-base text-sm text-gray-300 md:max-w-lg">{props.bio}</p>
                 </div>
             </div>
         </>

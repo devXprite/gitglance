@@ -26,10 +26,10 @@ const FollowUp = ({ follwoup }) => {
     const { issues_by_user, pr_by_user, issues_on_user, pr_on_user, login } = follwoup;
 
     return (
-        <GridContainer name="Follow Up" className={'grid-cols-2 gap-x-10 md:grid-cols-4'}>
+        <GridContainer name="Follow Up" className={'grid-cols-2 gap-0 gap-y-6 px-2 md:grid-cols-4 md:gap-8 md:px-6'}>
             <div>
                 <Doughnut
-                    options={{ plugins: { title: { text: `Issues opened by ${login}` } } }}
+                    options={{ plugins: { title: { text: `Issues by ${login}` } } }}
                     data={{
                         labels: Object.keys(issues_by_user),
                         datasets: [
@@ -44,7 +44,7 @@ const FollowUp = ({ follwoup }) => {
 
             <div>
                 <Doughnut
-                    options={{ plugins: { title: { text: `Pull Requests by ${login}` } } }}
+                    options={{ plugins: { title: { text: `PR by ${login}` } } }}
                     data={{
                         labels: Object.keys(pr_by_user),
                         datasets: [
@@ -59,7 +59,7 @@ const FollowUp = ({ follwoup }) => {
 
             <div>
                 <Doughnut
-                    options={{ plugins: { title: { text: `Issues opened on ${login}'s repos` } } }}
+                    options={{ plugins: { title: { text: `Issues on ${login}'s repos` } } }}
                     data={{
                         labels: Object.keys(issues_on_user),
                         datasets: [
@@ -74,7 +74,7 @@ const FollowUp = ({ follwoup }) => {
 
             <div>
                 <Doughnut
-                    options={{ plugins: { title: { text: `Pull Requests opened on ${login}'s repos` } } }}
+                    options={{ plugins: { title: { text: `PRs on ${login}'s repos` } } }}
                     data={{
                         labels: Object.keys(pr_on_user),
                         datasets: [

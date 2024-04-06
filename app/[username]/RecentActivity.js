@@ -78,7 +78,7 @@ const Activity = ({ event: { type, action, repo, size, issue, commits, branch, r
                     <FaCodeCommit className="mr-2 inline-block text-white" />
                     Pushed {size} commit(s) to <a href={repo.url}>{repo.name}</a> on branch{' '}
                     <span className="rounded bg-gray-700 px-1 py-0.5 font-[monospace] text-sm">{branch}</span>
-                    <ol className="mt-1 list-inside list-disc text-sm text-gray-400">
+                    <ol className="mt-1 list-inside list-disc text-xs md:text-sm text-gray-400">
                         {commits.map((commit, i) => (
                             <li key={i}>{commit.message}</li>
                         ))}
@@ -94,10 +94,10 @@ const RecentActivity = ({ activity }) => {
         <GridContainer name="Recent Activity" className={'grid-cols-1 md:grid-cols-1'}>
             {activity.map((event, i) => {
                 return (
-                    <div className="box text-left hover:scale-100">
+                    <div className="box overflow-hidden text-left hover:scale-100">
                         <p className="text-sm text-gray-400">{new Date(event.timestamp).toLocaleString()}</p>
 
-                        <div className="mt-2.5 font-medium text-gray-200 md:text-lg [&_a]:text-cyan-500 [&_a]:hover:underline">
+                        <div className="mt-2.5 font-medium text-gray-200 text-sm md:text-lg [&_a]:text-cyan-500 [&_a]:hover:underline">
                             <Activity event={event} />
                         </div>
                     </div>

@@ -8,10 +8,10 @@ const Stats = ({ stats }) => {
         <GridContainer name="GitHub Stats">
             {Object.keys(stats).map(key => (
                 <div key={key} className="box">
-                    <p className="font-[Electrolize] text-2xl font-bold">
+                    <p className="font-[Electrolize] text-xl md:text-2xl font-bold">
                         <CountUp start={0} end={stats[key]} />
                     </p>
-                    <h5 className="-mt-1 text-gray-400">{key}</h5>
+                    <h5 className="-mt-1 text-gray-400 text-sm md:text-base">{key}</h5>
                 </div>
             ))}
         </GridContainer>

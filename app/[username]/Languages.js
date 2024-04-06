@@ -14,11 +14,11 @@ const Languages = ({ languages }) => {
                         className="size-8 transition-all duration-300 group-hover:grayscale-0 group-hover:rotate-y-180 md:size-10"
                     />
                     <div>
-                        <p className="font-[Electrolize] text-lg font-bold md:text-xl">
+                        <p className="font-[Electrolize] text-base font-bold md:text-xl">
                             <CountUp start={0} end={size} decimals={2} />
-                            <span className="ml-1 text-lg">%</span>
+                            <span className="ml-1 text-sm md:text-lg">%</span>
                         </p>
-                        <h5 className="-mt-1 text-gray-400">{name}</h5>
+                        <h5 className="-mt-1 text-gray-400 text-sm md:text-base">{name}</h5>
                     </div>
                 </div>
             ))}

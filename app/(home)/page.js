@@ -3,6 +3,7 @@ import SearchBox from './SearchBox';
 import RecentProfiles from '@/models/RecentProfiles';
 import connectDb from '@/lib/connectDb';
 import Link from 'next/link';
+import GridContainer from '@/components/GridContainer';
 
 export default async function Home() {
     await connectDb();
@@ -16,17 +17,17 @@ export default async function Home() {
 
     return (
         <main className="px-4">
-            <div className="mx-auto max-w-screen-md px-4 pt-[15vh] text-center md:pt-[20vh]">
-                <h1 className="text-gradient text-5xl font-bold md:text-7xl">Git Glance</h1>
-                <p className="text-gradient mb-16 mt-2 text-2xl font-medium md:mb-20 md:text-3xl ">
+            <div className="mx-auto max-w-screen-md pt-[15vh] text-center md:pt-[18vh]">
+                <h1 className="text-gradient text-4xl font-bold md:text-7xl">Git Glance</h1>
+                <p className="text-gradient mb-16 mt-2 text-xl font-medium md:mb-20 md:text-3xl ">
                     Visualize Your GitHub Profile
                 </p>
 
                 <SearchBox formAction={formAction} />
             </div>
 
-            <div className="mx-auto mt-40 max-w-screen-xl text-left">
-                <h2 className="text-3xl font-semibold">Recent Profiles</h2>
+            {/* <div className="mx-auto mt-28 max-w-screen-xl text-left md:mt-40">
+                <h2 className="text-gradient text-xl font-semibold md:text-3xl">Recent Profiles</h2>
 
                 <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-4">
                     {recenetProfiles.map(profile => (
@@ -42,12 +43,37 @@ export default async function Home() {
                                 className="mx-auto size-12 rounded-full"
                             />
                             <div>
-                                <p className="text-lg font-semibold">{profile.name ?? profile.username}</p>
-                                <p className="text-gray-400">@{profile.username}</p>
+                                <p className="text-base font-semibold md:text-lg">{profile.name ?? profile.username}</p>
+                                <p className="text-sm text-gray-400 md:text-base">@{profile.username}</p>
                             </div>
                         </Link>
                     ))}
                 </div>
+            </div> */}
+            <div className="mx-auto mt-32 max-w-screen-xl md:mt-40">
+                <GridContainer
+                    className={'grid-cols-1 gap-3 md:grid-cols-4'}
+                    name={'Recent Profiles'}
+                    description={'Profiles that have been viewed recently'}
+                >
+                    {recenetProfiles.map(profile => (
+                        <Link
+                            key={profile._id}
+                            href={`/${profile.username}`}
+                            className="box flex items-center gap-3 md:gap-5 text-left"
+                        >
+                            <img
+                                src={profile.avatarUrl}
+                                alt={profile.username}
+                                className="grow-0 size-10 smd:ize-12 rounded-full"
+                            />
+                            <div>
+                                <p className="text-base font-semibold md:text-lg">{profile.name ?? profile.username}</p>
+                                <p className="text-sm text-gray-400 md:text-base">@{profile.username}</p>
+                            </div>
+                        </Link>
+                    ))}
+                </GridContainer>
             </div>
         </main>
     );

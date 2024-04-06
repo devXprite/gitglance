@@ -7,7 +7,7 @@ import { RiGitClosePullRequestLine } from 'react-icons/ri';
 const PrIcon = ({ status }) => {
     if (status === 'MERGED') {
         return (
-            <div className="rounded bg-purple-500 p-[3px] text-white">
+            <div className="rounded bg-purple-500 p-[3px] text-white text-sm md:text-base">
                 <IoGitMergeSharp />
             </div>
         );
@@ -15,14 +15,14 @@ const PrIcon = ({ status }) => {
 
     if (status === 'CLOSED') {
         return (
-            <div className="rounded bg-red-500 p-[3px] text-white">
+            <div className="rounded bg-red-500 p-[3px] text-white text-sm md:text-base">
                 <RiGitClosePullRequestLine />
             </div>
         );
     }
 
     return (
-        <div className="rounded bg-green-600 p-[3px] text-white">
+        <div className="rounded bg-green-600 p-[3px] text-white text-sm md:text-base">
             <IoGitPullRequestSharp />
         </div>
     );
@@ -37,11 +37,11 @@ const TopContributions = ({ contributions }) => {
         >
             {contributions.map(({ repository, contributions }, i) => (
                 <div key={i} className="box flex flex-col gap-5 px-4 py-3 text-left">
-                    <h3 className="flex items-center gap-2 text-lg font-bold">
-                        <img className="mr-1 size-11 rounded-md" src={repository.owner.avatarUrl} />
+                    <h3 className="flex items-center gap-2 md:text-lg font-bold">
+                        <img className="mr-1 size-10 md:size-11 rounded-md" src={repository.owner.avatarUrl} />
 
                         <div>
-                            <p>{repository.name}</p>
+                            <p className='truncate'>{repository.name}</p>
                             <a
                                 href={repository.owner.url}
                                 target="_blank"
@@ -59,7 +59,7 @@ const TopContributions = ({ contributions }) => {
                     <ul className="space-y-1">
                         {contributions.nodes.splice(0, 3).map(({ pullRequest }, i) => (
                             <div key={i} className="flex items-center justify-between gap-2 ">
-                                <a href={pullRequest.url} target="_blank" className="line-clamp-1 font-medium hover:underline">
+                                <a href={pullRequest.url} target="_blank" className="line-clamp-1 text-sm text-gray-300 md:text-base font-medium hover:underline">
                                     {pullRequest.title}
                                 </a>
                                 <PrIcon status={pullRequest.state} />
