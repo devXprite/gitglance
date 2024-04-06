@@ -235,14 +235,14 @@ const fetchUserData = async login => {
     `;
 
     const { user, rateLimit, ...response } = await githubGraphql({ query, variables: { username: login } });
-    const repositories = user.repositories.nodes;
+    const repositories = user?.repositories?.nodes;
 
     const languagesSize = getLanguageSize(repositories);
     const commitsPerRepo = getCommitsPerRepo(repositories);
     const starsPerRepo = getStarsPerRepo(repositories);
     const reposPerLanguages = getReposPerLanguage(repositories);
     const starsPerLanguages = getStarsPerLanguage(repositories);
-    const contributionCalendar = getContributionCalendar(user.contributionsCollection);
+    const contributionCalendar = getContributionCalendar(user?.contributionsCollection);
     const popularRepositories = user.popularRepositories.nodes;
     const userStats = getUserStats(user);
     const followUp = getFollowUp(response, login);

@@ -1,4 +1,6 @@
 const getReposPerLanguage = repos => {
+    if (!repos) return {};
+
     const languages = {};
 
     repos.forEach(repo => {

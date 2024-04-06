@@ -30,7 +30,11 @@ const PrIcon = ({ status }) => {
 
 const TopContributions = ({ contributions }) => {
     return (
-        <GridContainer name="Top Contributions" className={'grid-cols-1 md:grid-cols-3'}>
+        <GridContainer
+            name="Top Contributions"
+            description="Top contributions made by the user in the last year."
+            className={'grid-cols-1 md:grid-cols-3'}
+        >
             {contributions.map(({ repository, contributions }, i) => (
                 <div key={i} className="box flex flex-col gap-5 px-4 py-3 text-left">
                     <h3 className="flex items-center gap-2 text-lg font-bold">

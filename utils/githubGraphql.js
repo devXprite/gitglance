@@ -13,6 +13,7 @@ const githubGraphql = ({ query, variables }) => {
             },
         ).then(response => {
             resolve(response.data.data);
+            // console.log(response.data);
         }).catch(error => {
             console.log(error);
             reject(error);

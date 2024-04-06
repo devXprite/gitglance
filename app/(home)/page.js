@@ -6,10 +6,7 @@ import Link from 'next/link';
 
 export default async function Home() {
     await connectDb();
-
-    // order by updated_at & limit 8
     const recenetProfiles = await RecentProfiles.find({}).sort({ updatedAt: 'desc' }).limit(8);
-    console.log(recenetProfiles);
 
     const formAction = async formData => {
         'use server';
@@ -20,15 +17,15 @@ export default async function Home() {
     return (
         <main className="px-4">
             <div className="mx-auto max-w-screen-md px-4 pt-[15vh] text-center md:pt-[20vh]">
-                <h1 className="text-gradient text-5xl font-bold md:text-8xl">Git Glance</h1>
-                <p className="text-gradient mb-16 mt-2 text-2xl font-medium md:text-3xl ">
+                <h1 className="text-gradient text-5xl font-bold md:text-7xl">Git Glance</h1>
+                <p className="text-gradient mb-16 mt-2 text-2xl font-medium md:mb-20 md:text-3xl ">
                     Lorem ipsum dolor sit amet consectetur
                 </p>
 
                 <SearchBox formAction={formAction} />
             </div>
 
-            <div className="mx-auto mt-20 max-w-screen-xl text-left">
+            <div className="mx-auto mt-40 max-w-screen-xl text-left">
                 <h2 className="text-3xl font-semibold">Recent Profiles</h2>
 
                 <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-4">

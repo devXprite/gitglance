@@ -6,7 +6,11 @@ import GridContainer from '@/components/GridContainer';
 
 const Calendar = ({ contributions }) => {
     return (
-        <GridContainer name="Contributions Calendar" className={'block overflow-x-auto'}>
+        <GridContainer
+            name="Contributions Calendar"
+            description={`Daily contributions made by the user in the last 365 days.`}
+            className={'block overflow-x-auto'}
+        >
             <div className="grid w-[40rem] grid-flow-col grid-rows-7 gap-1 gap-x-[3px] md:w-auto lg:gap-1.5">
                 {contributions.map((contribution, i) => (
                     <Tippy

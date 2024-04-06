@@ -17,19 +17,19 @@ import RecentProfiles from '@/models/RecentProfiles';
 import connectDb from '@/lib/connectDb';
 
 // meta data
-// export const genrateMeta = ({ params: { username } }) => {
-//     return {
-//         title: `${username} - GitHub Profile`,
-//         description: `GitHub profile of ${username}`,
-//     };
-// };
+export const generateMetadata = ({ params: { username } }) => {
+    return {
+        title: `${username} - GitHub Profile`,
+        description: `GitHub profile of ${username}`,
+    };
+};
 
 const page = async ({ params: { username } }) => {
     await connectDb();
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    console.log(userInfo);
+    // console.log(userInfo);
     if (!userInfo) return notFound();
 
     await RecentProfiles.findOneAndUpdate(

@@ -10,7 +10,6 @@ const fetchUserInfo = async username => {
           bio
           company
           createdAt
-          email
           location
           url
           twitterUsername
@@ -38,7 +37,7 @@ const fetchUserInfo = async username => {
 
     try {
         const response = await githubGraphql({ query, variables: { username } });
-        return response?.user
+        return response?.user;
     } catch (error) {
         console.log(error);
         return false;

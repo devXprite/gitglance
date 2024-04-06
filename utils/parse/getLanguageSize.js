@@ -1,7 +1,7 @@
 const getLanguageSize = repos => {
     let languages = { totalSize: 0 };
 
-    repos.forEach(repo => {
+    repos?.forEach(repo => {
         repo.languages.edges.forEach(({ node: { name }, size }) => {
             if (languages[name]) languages[name] += size;
             else languages[name] = size;
