@@ -11,10 +11,10 @@ const LanguageIcon = ({ name, className }) => {
 
     return (
         <img
-            src={`https://gitvio.vercel.app/images/icons/${name.toLowerCase()}.svg`}
-            // onError={e => {
-            //     e.target.src = `https://gitvio.vercel.app/images/icons/unknown.svg`;
-            // }}
+            src={`/icons/${name.toLowerCase()}.svg`}
+            onError={e => {
+                e.target.src = `/icons/unknown.svg`;
+            }}
             className={className}
         />
     );
