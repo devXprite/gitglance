@@ -42,7 +42,13 @@ const TopContributions = ({ contributions }) => {
 
                         <div>
                             <p>{repository.name}</p>
-                            <p className="-mt-1 text-sm text-gray-400">@{repository.owner.login}</p>
+                            <a
+                                href={repository.owner.url}
+                                target="_blank"
+                                className="-mt-1 block text-sm text-gray-400 hover:underline"
+                            >
+                                @{repository.owner.login}
+                            </a>
                         </div>
 
                         <p className="ml-auto rounded-md border border-gray-600 bg-gray-700 p-1.5">
@@ -53,7 +59,9 @@ const TopContributions = ({ contributions }) => {
                     <ul className="space-y-1">
                         {contributions.nodes.splice(0, 3).map(({ pullRequest }, i) => (
                             <div key={i} className="flex items-center justify-between gap-2 ">
-                                <p className="line-clamp-1 font-medium">{pullRequest.title}</p>
+                                <a href={pullRequest.url} target="_blank" className="line-clamp-1 font-medium hover:underline">
+                                    {pullRequest.title}
+                                </a>
                                 <PrIcon status={pullRequest.state} />
                             </div>
                         ))}

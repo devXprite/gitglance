@@ -1,11 +1,11 @@
-import { FaSpinner } from "react-icons/fa"
+import { CgSpinner } from 'react-icons/cg';
 
 const loading = () => {
-  return (
-    <div className="min-h-screen grid place-items-center">
-        <FaSpinner className="text-5xl animate-spin" />
-    </div>
-  )
-}
+    return (
+        <div className="grid min-h-screen place-items-center">
+            <CgSpinner className="animate-spin text-5xl md:text-6xl" />
+        </div>
+    );
+};
 
-export default loading
+export default loading;

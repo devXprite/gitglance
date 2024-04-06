@@ -19,7 +19,7 @@ export default async function Home() {
             <div className="mx-auto max-w-screen-md px-4 pt-[15vh] text-center md:pt-[20vh]">
                 <h1 className="text-gradient text-5xl font-bold md:text-7xl">Git Glance</h1>
                 <p className="text-gradient mb-16 mt-2 text-2xl font-medium md:mb-20 md:text-3xl ">
-                    Lorem ipsum dolor sit amet consectetur
+                    Visualize Your GitHub Profile
                 </p>
 
                 <SearchBox formAction={formAction} />

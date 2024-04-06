@@ -6,7 +6,7 @@ import { FaCodePullRequest } from 'react-icons/fa6';
 
 const RepoCard = props => {
     return (
-        <div className="box flex flex-col px-4 py-3 text-left">
+        <a href={props.url} target='_blank' className="box flex flex-col px-4 py-3 text-left">
             <h3 className="flex items-center gap-2 text-lg font-bold">
                 <VscRepo /> {props.name}
             </h3>
@@ -37,7 +37,7 @@ const RepoCard = props => {
                     <FaCodePullRequest /> {props.pullRequests.totalCount}
                 </p>
             </div>
-        </div>
+        </a>
     );
 };
 

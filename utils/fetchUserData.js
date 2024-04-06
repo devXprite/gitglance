@@ -76,6 +76,7 @@ contributionsCollection {
       nodes {
         pullRequest {
           id
+          url
           title
           state
         }
@@ -95,6 +96,7 @@ contributionsCollection {
     }
     owner{
       avatarUrl(size: 50)
+      url
       login
     }
     }
