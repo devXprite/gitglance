@@ -15,6 +15,7 @@ import fetchActivity from '@/utils/fetchActivity';
 import { notFound } from 'next/navigation';
 import RecentProfiles from '@/models/RecentProfiles';
 import connectDb from '@/lib/connectDb';
+import RateLimit from '@/components/RateLimit';
 
 // meta data
 export const generateMetadata = async ({ params: { username } }) => {
@@ -65,7 +66,8 @@ const page = async ({ params: { username } }) => {
     } = await fetchUserData(username);
 
     return (
-        <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 pt-16 md:space-y-16">
+        <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 -mt-8 md:space-y-16">
+            <RateLimit />
             <UserInfo username={username} {...userInfo} />
             <Stats stats={userStats} />
             <Languages languages={languagesSize} />

@@ -1,5 +1,6 @@
 {
-  "name": "gh-resumes",
+  "name": "Git Glance",
+  "description": "Gain valuable insights into your GitHub profile effortlessly. Explore your coding journey with intuitive visualizations and unlock a deeper understanding of your contributions, repositories, and activity. Dive into your GitHub universe with ease and clarity.",
   "version": "0.1.0",
   "private": true,
   "scripts": {

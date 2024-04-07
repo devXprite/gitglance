@@ -47,7 +47,7 @@ const ParticlesJs = () => {
 
     return (
         <>
-            <Script src={'http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'} onLoad={onLoad} />
+            <Script src={'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'} onLoad={onLoad} />
             <div id="particles-js" className="fixed inset-0 z-[-1]"></div>
         </>
     );
