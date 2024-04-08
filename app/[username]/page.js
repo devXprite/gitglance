@@ -66,7 +66,7 @@ const page = async ({ params: { username } }) => {
     } = await fetchUserData(username);
 
     return (
-        <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 -mt-8 md:space-y-16">
+        <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 md:space-y-16">
             <RateLimit />
             <UserInfo username={username} {...userInfo} />
             <Stats stats={userStats} />

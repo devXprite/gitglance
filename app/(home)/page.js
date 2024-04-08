@@ -7,6 +7,8 @@ import GridContainer from '@/components/GridContainer';
 import { unstable_noStore as noStore } from 'next/cache';
 import Header from '@/components/Header';
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 export default async function Home() {
     noStore();
     await connectDb();
@@ -23,7 +25,7 @@ export default async function Home() {
             <Header />
 
             <main className="px-4">
-                <div className="mx-auto max-w-screen-md pt-[15vh] text-center md:pt-[12vh]">
+                <div className="mx-auto max-w-screen-md text-center pt-[10vh]">
                     <h1 className="text-gradient text-4xl font-bold md:text-7xl">Git Glance</h1>
                     <p className="text-gradient mb-16 mt-2 text-xl font-medium md:text-3xl ">
                         Visualize Your GitHub Profile

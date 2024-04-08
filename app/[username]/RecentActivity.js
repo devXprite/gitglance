@@ -94,7 +94,7 @@ const RecentActivity = ({ activity }) => {
         <GridContainer name="Recent Activity" className={'grid-cols-1 md:grid-cols-1'}>
             {activity.map((event, i) => {
                 return (
-                    <div className="box overflow-hidden text-left hover:scale-100">
+                    <div key={i} className="box overflow-hidden text-left hover:scale-100">
                         <p className="text-sm text-gray-400">{new Date(event.timestamp).toLocaleString()}</p>
 
                         <div className="mt-2.5 font-medium text-gray-200 text-sm md:text-lg [&_a]:text-cyan-500 [&_a]:hover:underline">

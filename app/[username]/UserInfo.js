@@ -19,7 +19,7 @@ const UserInfo = props => {
 
                 <div className="flex h-full flex-col text-center md:text-left">
                     <h2 className="text-gradient text-4xl font-bold md:text-6xl">{props.name || props.username}</h2>
-                    <h4 className="-mt-1 text-gray-400  md:mb-1 md:text-3xl">@{props.username}</h4>
+                    <h3 className="-mt-1 text-gray-400  md:mb-1 md:text-3xl">@{props.username}</h3>
 
                     <p className="mb-3 flex items-center justify-center md:justify-start gap-2">
                         <FaCalendar />
