@@ -85,7 +85,7 @@ const ActivityGraph = ({ activity }) => {
 
                         plugins: {
                             title: {
-                                text: 'Weekly Activity (1 Year)',
+                                text: 'Weekly Frequency (1 year)',
                             },
                         },
                     }}
