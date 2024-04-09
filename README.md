@@ -20,12 +20,11 @@
 ## Screenshots
 
 <!-- <img > -->
-<img src="./public/screenshots/1.png" width="45%" />
-<img src="./public/screenshots/2.png" width="45%" />
-<img src="./public/screenshots/3.png" width="45%" />
-<img src="./public/screenshots/4.png" width="45%" />
-<img src="./public/screenshots/5.png" width="45%" />
-<img src="./public/screenshots/6.png" width="45%" />
+<img src="./public/screenshots/2.png" width="75%" />
+<img src="./public/screenshots/3.png" width="75%" />
+<img src="./public/screenshots/4.png" width="75%" />
+<img src="./public/screenshots/5.png" width="75%" />
+<img src="./public/screenshots/6.png" width="75%" />
 
 
 ## Installation
