@@ -4,8 +4,6 @@
  <a href="https://gitglance.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/devXprite/gitglance/issues/new?assignees=&labels=bug&template=bug_report.md&title=">Report Bug</a>
-    ·
-    <a href="https://github.com/devXprite/gitglance/issues">Request Feature</a>
 </p>
 <br/>
 
@@ -18,6 +16,17 @@
 - **GitHub GraphQL API Integration:** Utilizing the GitHub GraphQL API, GitGlance fetches user data directly from GitHub, ensuring accurate and up-to-date information.
 - **Next.js & Tailwind CSS:** Built with Next.js for efficient server-side rendering and Tailwind CSS for easy styling and customization.
 - **Responsive Design:** GitGlance is designed to be responsive, ensuring a seamless experience across various devices and screen sizes.
+
+## Screenshots
+
+<!-- <img > -->
+<img src="./public/screenshots/1.png" width="45%" />
+<img src="./public/screenshots/2.png" width="45%" />
+<img src="./public/screenshots/3.png" width="45%" />
+<img src="./public/screenshots/4.png" width="45%" />
+<img src="./public/screenshots/5.png" width="45%" />
+<img src="./public/screenshots/6.png" width="45%" />
+
 
 ## Installation
 To run GitGlance locally, follow these steps:

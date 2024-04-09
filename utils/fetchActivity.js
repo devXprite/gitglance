@@ -24,15 +24,15 @@ const fetchActivity = async login => {
                 }
 
                 // Deleted a git branch or tag
-                case 'DeleteEvent': {
-                    const { ref: deleted, ref_type: type } = payload;
-                    return {
-                        type: 'delete',
-                        ref: { deleted, type },
-                        timestamp,
-                        repo,
-                    };
-                }
+                // case 'DeleteEvent': {
+                //     const { ref: deleted, ref_type: type } = payload;
+                //     return {
+                //         type: 'delete',
+                //         ref: { deleted, type },
+                //         timestamp,
+                //         repo,
+                //     };
+                // }
 
                 // Forked a repository
                 case 'ForkEvent': {

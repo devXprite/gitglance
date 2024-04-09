@@ -35,35 +35,36 @@ const page = async ({ params: { username } }) => {
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
-    // console.log(userInfo);
     if (!userInfo) return notFound();
 
-    await RecentProfiles.findOneAndUpdate(
-        { username },
+    const updateRecentProfilesDb = async () =>
+        await RecentProfiles.findOneAndUpdate(
+            { username },
+            {
+                name: userInfo.name ?? userInfo.username,
+                username: userInfo.username,
+                following: userInfo.following.totalCount,
+                followers: userInfo.followers.totalCount,
+                avatarUrl: userInfo.avatarUrl,
+            },
+            { upsert: true, new: true, setDefaultsOnInsert: true },
+        );
+
+    const [
+        userActivity,
         {
-            name: userInfo.name ?? userInfo.username,
-            username: userInfo.username,
-            following: userInfo.following.totalCount,
-            followers: userInfo.followers.totalCount,
-            avatarUrl: userInfo.avatarUrl,
+            languagesSize,
+            contributionCalendar,
+            commitsPerRepo,
+            starsPerRepo,
+            reposPerLanguages,
+            starsPerLanguages,
+            popularRepositories,
+            userStats,
+            topContributions,
+            followUp,
         },
-        { upsert: true, new: true, setDefaultsOnInsert: true },
-    );
-
-    const userActivity = await fetchActivity(username);
-
-    const {
-        languagesSize,
-        contributionCalendar,
-        commitsPerRepo,
-        starsPerRepo,
-        reposPerLanguages,
-        starsPerLanguages,
-        popularRepositories,
-        userStats,
-        topContributions,
-        followUp,
-    } = await fetchUserData(username);
+    ] = await Promise.all([fetchActivity(username), fetchUserData(username), updateRecentProfilesDb()]);
 
     return (
         <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 md:space-y-16">
