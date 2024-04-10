@@ -264,6 +264,7 @@ const fetchUserData = async login => {
         topContributions,
         userStats,
         followUp,
+        rateLimit
     };
 };
 

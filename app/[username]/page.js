@@ -63,12 +63,13 @@ const page = async ({ params: { username } }) => {
             userStats,
             topContributions,
             followUp,
+            rateLimit,
         },
     ] = await Promise.all([fetchActivity(username), fetchUserData(username), updateRecentProfilesDb()]);
 
     return (
         <main className="mx-auto max-w-screen-xl space-y-8 px-3 pb-10 md:space-y-16">
-            <RateLimit />
+            <RateLimit limit={rateLimit} />
             <UserInfo username={username} {...userInfo} />
             <Stats stats={userStats} />
             <Languages languages={languagesSize} />
