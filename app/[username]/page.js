@@ -17,10 +17,15 @@ import RecentProfiles from '@/models/RecentProfiles';
 import connectDb from '@/lib/connectDb';
 import RateLimit from '@/components/RateLimit';
 
-// meta data
 export const generateMetadata = async ({ params: { username } }) => {
     await connectDb();
     const userInfo = await fetchUserInfo(username);
+
+    if (!userInfo)
+        return {
+            title: 'User Not Found!',
+        };
+
     return {
         title: `${username} - GitHub Profile`,
         description: `${username} is a developer on GitHub with ${userInfo.followers.totalCount} followers and ${userInfo.repositories.totalCount} repositories.`,
@@ -31,24 +36,30 @@ export const generateMetadata = async ({ params: { username } }) => {
 };
 
 const page = async ({ params: { username } }) => {
-    await connectDb();
     console.log('Username:', username);
 
     const userInfo = await fetchUserInfo(username);
     if (!userInfo) return notFound();
 
-    const updateRecentProfilesDb = async () =>
-        await RecentProfiles.findOneAndUpdate(
-            { username },
-            {
-                name: userInfo.name ?? userInfo.username,
-                username: userInfo.username,
-                following: userInfo.following.totalCount,
-                followers: userInfo.followers.totalCount,
-                avatarUrl: userInfo.avatarUrl,
-            },
-            { upsert: true, new: true, setDefaultsOnInsert: true },
-        );
+
+    const updateRecentProfilesDb = async () => {
+        try {
+            await connectDb();
+            await RecentProfiles.findOneAndUpdate(
+                { username },
+                {
+                    name: userInfo.name ?? userInfo.username,
+                    username: userInfo.username,
+                    following: userInfo.following.totalCount,
+                    followers: userInfo.followers.totalCount,
+                    avatarUrl: userInfo.avatarUrl,
+                },
+                { upsert: true, new: true, setDefaultsOnInsert: true },
+            );
+        } catch (error) {
+            console.log('An error occurred while updating the recent profiles database:');
+        }
+    };
 
     const [
         userActivity,

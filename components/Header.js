@@ -10,6 +10,20 @@ const Header = () => {
                 {/* <img
                 className="ml-auto h-9"
                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=434915&theme=neutral" alt="" /> */}
+                <a
+                    href="https://www.producthunt.com/posts/gitglance?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-gitglance"
+                    target="_blank"
+                    className='ml-auto'
+                >
+                    <img
+                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=450495&theme=neutral"
+                        alt="GitGlance - Tool&#0032;for&#0032;visualizing&#0032;a&#0032;developer&#0039;s&#0032;GitHub&#0032;profile | Product Hunt"
+                        // style="width: 250px; height: 54px;"
+                        // width="250"
+                        // height="54"
+                        className="h-9"
+                    />
+                </a>
             </div>
         </header>
     );

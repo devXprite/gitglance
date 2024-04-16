@@ -12,4 +12,3 @@ const RecentProfilesSchema = new mongoose.Schema(
 );
 
 export default mongoose.models.RecentProfiles || mongoose.model('RecentProfiles', RecentProfilesSchema);
-// export default mongoose.models.RecentProfiles

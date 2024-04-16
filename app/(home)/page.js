@@ -7,12 +7,16 @@ import GridContainer from '@/components/GridContainer';
 import { unstable_noStore as noStore } from 'next/cache';
 import Header from '@/components/Header';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 export default async function Home() {
     noStore();
-    await connectDb();
-    const recenetProfiles = await RecentProfiles.find({}).sort({ updatedAt: 'desc' }).limit(8);
+    let recenetProfiles = [];
+
+    try {
+        await connectDb();
+        recenetProfiles = await RecentProfiles.find({ }).sort({ updatedAt: 'desc' }).limit(8);
+    } catch (error) {
+        console.log('An error occurred in Home Page while fetching recent profiles');
+    }
 
     const formAction = async formData => {
         'use server';
@@ -25,7 +29,7 @@ export default async function Home() {
             <Header />
 
             <main className="px-4">
-                <div className="mx-auto max-w-screen-md text-center pt-[10vh]">
+                <div className="mx-auto max-w-screen-md pt-[10vh] text-center">
                     <h1 className="text-gradient text-4xl font-bold md:text-7xl">Git Glance</h1>
                     <p className="text-gradient mb-16 mt-2 text-xl font-medium md:text-3xl ">
                         Visualize Your GitHub Profile
@@ -34,57 +38,36 @@ export default async function Home() {
                     <SearchBox formAction={formAction} />
                 </div>
 
-                {/* <div className="mx-auto mt-28 max-w-screen-xl text-left md:mt-40">
-                <h2 className="text-gradient text-xl font-semibold md:text-3xl">Recent Profiles</h2>
-
-                <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-4">
-                    {recenetProfiles.map(profile => (
-                        <Link
-                            key={profile._id}
-                            href={`/${profile.username}`}
-                            className="box grid grid-cols-[3rem_1fr] items-center gap-5 text-left"
+                {recenetProfiles.length > 0 && (
+                    <div className="mx-auto mt-32 max-w-screen-xl md:mt-36">
+                        <GridContainer
+                            className={'grid-cols-1 gap-3 md:grid-cols-4'}
+                            name={'Recent Profiles'}
+                            description={'Profiles that have been viewed recently'}
                         >
-                            <img
-                                src={profile.avatarUrl}
-                                // src="https://github.com/devxprite.png"
-                                alt={profile.username}
-                                className="mx-auto size-12 rounded-full"
-                            />
-                            <div>
-                                <p className="text-base font-semibold md:text-lg">{profile.name ?? profile.username}</p>
-                                <p className="text-sm text-gray-400 md:text-base">@{profile.username}</p>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div> */}
-                <div className="mx-auto mt-32 max-w-screen-xl md:mt-36">
-                    <GridContainer
-                        className={'grid-cols-1 gap-3 md:grid-cols-4'}
-                        name={'Recent Profiles'}
-                        description={'Profiles that have been viewed recently'}
-                    >
-                        {recenetProfiles.map(profile => (
-                            <Link
-                                key={profile._id}
-                                href={`/${profile.username}`}
-                                className="box flex items-center gap-3 text-left md:gap-5"
-                            >
-                                <img
-                                    src={profile.avatarUrl}
-                                    alt={profile.username}
-                                    className="size-10 grow-0 rounded-full md:size-12"
-                                />
-                                <div>
-                                    <p className="text-base font-semibold md:text-lg">
-                                        {profile.name ?? profile.username}
-                                    </p>
-                                    <p className="-mt-1 text-sm text-gray-400 md:text-base">@{profile.username}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </GridContainer>
-                </div>
+                            {recenetProfiles.map(profile => (
+                                <Link
+                                    key={profile._id}
+                                    href={`/${profile.username}`}
+                                    prefetch={false}
+                                    className="box flex items-center gap-3 text-left md:gap-5"
+                                >
+                                    <img
+                                        src={profile.avatarUrl}
+                                        alt={profile.username}
+                                        className="size-10 grow-0 rounded-full md:size-12"
+                                    />
+                                    <div>
+                                        <p className="text-base font-semibold md:text-lg">
+                                            {profile.name ?? profile.username}
+                                        </p>
+                                        <p className="-mt-1 text-sm text-gray-400 md:text-base">@{profile.username}</p>
+                                    </div>
+                                </Link>
+                            ))}
+                        </GridContainer>
+                    </div>
+                )}
             </main>
         </>
     );
