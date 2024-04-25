@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { FaHome } from 'react-icons/fa';
 
+export const metadata = {
+    title: 'Page Not Found!',
+}
+
 const page = () => {
     return (
         <main className="grid min-h-screen place-items-center text-center ">
