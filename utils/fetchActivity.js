@@ -8,6 +8,8 @@ const fetchActivity = async login => {
         },
     });
 
+    console.log(data);
+
     // organize data
     const activity = data
         .map(({ type, payload, created_at: timestamp, repo, ...event }) => {
@@ -101,7 +103,7 @@ const fetchActivity = async login => {
                         type: 'star',
                         timestamp,
                         repo,
-                        action,
+                        action: 'starred',
                     };
                 }
 
