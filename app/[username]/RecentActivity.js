@@ -12,7 +12,7 @@ const Activity = ({ event: { type, action, repo, size, issue, commits, branch, r
         case 'star': {
             return (
                 <div>
-                    <FaRegStar className="mr-2 inline-block text-white" />
+                    <FaRegStar className="mr-2 inline-block text-white uppercase" />
                     {action} repository <a href={repo.url}>{repo.name}</a>
                 </div>
             );
