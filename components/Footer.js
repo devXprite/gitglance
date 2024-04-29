@@ -5,7 +5,7 @@ const Footer = () => {
                 Git Glance is built with <a href="https://nextjs.org">Nextjs v14.1.0</a> &{' '}
                 <a href="https://tailwindcss.com/">TailwindCSS</a> By{' '}
                 <a href="http://github.com/devXprite/">devxprite</a>. Source is on{' '}
-                <a href="github.com/devXprite/gitglance">Github</a>
+                <a href="https://github.com/devXprite/gitglance">Github</a>
             </div>
         </footer>
     );
