@@ -41,15 +41,14 @@ const page = async ({ params: { username } }) => {
     const userInfo = await fetchUserInfo(username);
     if (!userInfo) return notFound();
 
-
     const updateRecentProfilesDb = async () => {
         try {
             await connectDb();
             await RecentProfiles.findOneAndUpdate(
-                { username },
+                { username: userInfo.username.toLowerCase() },
                 {
                     name: userInfo.name ?? userInfo.username,
-                    username: userInfo.username,
+                    username: userInfo.username.toLowerCase(),
                     following: userInfo.following.totalCount,
                     followers: userInfo.followers.totalCount,
                     avatarUrl: userInfo.avatarUrl,

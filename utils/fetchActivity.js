@@ -8,7 +8,7 @@ const fetchActivity = async login => {
         },
     });
 
-    console.log(data);
+    // console.log(data);
 
     // organize data
     const activity = data
