@@ -45,10 +45,10 @@ const page = async ({ params: { username } }) => {
         try {
             await connectDb();
             await RecentProfiles.findOneAndUpdate(
-                { username: userInfo.username.toLowerCase() },
+                { username },
                 {
                     name: userInfo.name ?? userInfo.username,
-                    username: userInfo.username.toLowerCase(),
+                    username: userInfo.username,
                     following: userInfo.following.totalCount,
                     followers: userInfo.followers.totalCount,
                     avatarUrl: userInfo.avatarUrl,
