@@ -1,0 +1,37 @@
+name: Feature Request
+description: Have any new idea or feature? Please suggest!
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request form!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of any alternative solution or features you've considered.
+    validations:
+      required: true
+  - type: textarea
+    id: motive
+    attributes:
+      label: Why implement this feature?
+      description: What problem is this feature trying to solve?
+    validations:
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Any additional information?
+      description: Anything else you want to describe about?
+    validations:
+      required: false
+  - type: checkboxes
+    id: conditions
+    attributes:
+      label: Checklist
+      options:
+        - label: I have checked the existing issues and made sure that this is not a duplicate feature request form.
+          required: true
