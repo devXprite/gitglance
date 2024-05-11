@@ -5,7 +5,7 @@ const UserInfo = props => {
         <>
             <div className="mx-auto flex max-w-screen-lg flex-col items-center justify-evenly gap-4 pb-6 md:flex-row md:gap-14">
                 <div className="relative size-36 flex-none rounded-full border-[4px] border-gray-600 md:size-48">
-                    <img className="rounded-full" src={props.avatarUrl} alt={props.name} />
+                    <img className="rounded-full w-full" src={props.avatarUrl} alt={props.name} />
 
                     {props.status && (
                         <div className="absolute bottom-[10%] right-[10%] translate-x-1/2 ">
