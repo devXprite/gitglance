@@ -69,12 +69,10 @@ To run GitGlance locally, follow these steps:
     
     
 ## Contributing
-
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 
 ## How to Contribute
-
 We welcome contributions from the community to enhance GitGlance further.You can use GitHub Desktop to manage this repository. Here's how:
 
 1. **Download and Install GitHub Desktop**: 
@@ -106,10 +104,11 @@ We welcome contributions from the community to enhance GitGlance further.You can
 
 That's it! You can now use GitHub Desktop to manage this repository efficiently.
 
+## License
+This project is licensed under the MIT License. see the LICENSE file for details.
 
 
 ## Acknowledgements
-
 GitGlance utilizes the following technologies and libraries:
 
 - [Next.js](https://nextjs.org/)
