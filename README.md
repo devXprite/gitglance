@@ -69,51 +69,44 @@ To run GitGlance locally, follow these steps:
     
     
 ## Contributing
+
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 
 ## How to Contribute
-We welcome contributions from the community to enhance GitGlance further. Here's how you can contribute:
 
-# 1. Fork the Repository
-Fork the GitGlance repository by clicking the "Fork" button at the top right corner of this page. This will create a copy of the repository in your GitHub account.
+We welcome contributions from the community to enhance GitGlance further.You can use GitHub Desktop to manage this repository. Here's how:
 
-# 2. Clone the Repository
-Clone your forked repository to your local machine using GitHub Desktop or by running the following command in your terminal:
+1. **Download and Install GitHub Desktop**: 
+   - Go to the [GitHub Desktop website](https://desktop.github.com/) and download the GitHub Desktop application.
+   - Follow the installation instructions to install GitHub Desktop on your computer.
 
-```bash
-git clone https://github.com/your-username/gitglance.git
+2. **Clone the Repository**:
+   - Open GitHub Desktop and sign in to your GitHub account.
+   - Click on the "File" menu, then select "Clone Repository..."
+   - Choose the repository you want to clone from the list or enter its URL.
+   - Choose the local path where you want to clone the repository and click "Clone".
 
-# 3. Create a New Branch
-Create a new branch for your feature or bug fix. You can do this using GitHub Desktop or by running the following command in your terminal:
+3. **Make Changes**:
+   - After cloning the repository, you can make changes to the files locally using your preferred code editor.
 
-```bash
-git checkout -b feature-name
+4. **Commit Changes**:
+   - Once you've made changes, open GitHub Desktop.
+   - You'll see a list of files with changes. Write a summary and description of your changes in the text fields.
+   - Click "Commit to main" to commit your changes locally.
 
-# 4. Make Changes
-Make your desired changes to the codebase using your preferred code editor.
+5. **Push Changes**:
+   - To push your changes to the remote repository on GitHub.com, click "Push origin".
 
-# 5. Commit Changes
-After making changes, commit them to your local repository. You can do this using GitHub Desktop or by running the following commands in your terminal:
+6. **Pull Changes**:
+   - If there are changes on the remote repository that you don't have locally, you can pull them by clicking "Fetch origin" or "Pull origin".
 
-```bash
-git add .
-git commit -m "Your descriptive commit message"
+7. **Sync Changes**:
+   - To synchronize your local repository with the remote repository, click "Sync" to push and pull changes in one step.
 
-# 6. Push Changes
-Push your changes to your forked repository on GitHub:
+That's it! You can now use GitHub Desktop to manage this repository efficiently.
 
-```bash
-git push origin feature-name
 
-#7. Create a Pull Request
-Once you have pushed your changes to your forked repository, navigate to the original repository on GitHub. You should see a prompt to create a pull request. Click on the prompt and submit your pull request.
-
-#8. Wait for Review
-Your pull request will be reviewed by the project maintainers. Make any requested changes if necessary, and once approved, your changes will be merged into the main repository.
-
-## License
-This project is licensed under the MIT License. see the LICENSE file for details.
 
 ## Acknowledgements
 
