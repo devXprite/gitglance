@@ -12,17 +12,10 @@
 
 ## Features
 - **GitHub Profile Visualization:** GitGlance provides a comprehensive visualization of a developer's GitHub profile, including their contributions, repositories, and more.
-
 - **Field of Contributions:** Understand the areas in which the developer contributes the most through a graphical representation.
-
 - **GitHub GraphQL API Integration:** Utilizing the GitHub GraphQL API, GitGlance fetches user data directly from GitHub, ensuring accurate and up-to-date information.
-
 - **Next.js & Tailwind CSS:** Built with Next.js for efficient server-side rendering and Tailwind CSS for easy styling and customization.
-
 - **Responsive Design:** GitGlance is designed to be responsive, ensuring a seamless experience across various devices and screen sizes.
-
-- **Responsive Design for Any Device:** GitGlance is meticulously crafted to adapt to various devices and screen sizes, ensuring a consistent and user-friendly experience across desktops, tablets, and smartphones.
-
 - **Dynamic Chart Generation:** GitGlance employs advanced chart generation techniques to dynamically visualize GitHub data. Whether it's plotting commit timelines, repository language distributions, or pull request statistics, GitGlance generates interactive and customizable charts.
 
 
