@@ -40,31 +40,49 @@ We welcome contributions from the community to enhance GitGlance further.You can
 1. **Download and Install GitHub Desktop**: 
    - Go to the [GitHub Desktop website](https://desktop.github.com/) and download the GitHub Desktop application.
    - Follow the installation instructions to install GitHub Desktop on your computer.
+   - Launch GitHub Desktop and log in to your GitHub account if you haven't already.
 
 2. **Clone the Repository**:
    - Open GitHub Desktop and sign in to your GitHub account.
    - Click on the "File" menu, then select "Clone Repository..."
-   - Choose the repository you want to clone from the list or enter its URL.
-   - Choose the local path where you want to clone the repository and click "Clone".
+   - Choose the gitglance repository you want to clone from the list or enter its URL.
+   - Choose the local path where you want to clone the gitglance repository and click "Clone".
 
-3. **Make Changes**:
+3. **Switch to the Correct Branch:**
+   - Ensure you are on the branch that you want to submit a pull request for.
+   - If you need to switch branches, you can do so by clicking on the "Current Branch" dropdown menu and selecting the desired branch.
+
+4. **Make Changes**:
    - After cloning the repository, you can make changes to the files locally using your preferred code editor.
 
-4. **Commit Changes**:
+5. **Commit Changes**:
    - Once you've made changes, open GitHub Desktop.
    - You'll see a list of files with changes. Write a summary and description of your changes in the text fields.
-   - Click "Commit to main" to commit your changes locally.
+   - Click the "Commit to <branch-name>" button to commit your changes to the local branch.
 
-5. **Push Changes**:
-   - To push your changes to the remote repository on GitHub.com, click "Push origin".
+6. **Push Changes**:
+   - To push your changes to the remote repository on GitHub.com, click "Push origin" button in the top right corner of GitHub Desktop to push your changes to your forked repository on GitHub.
 
-6. **Pull Changes**:
+7. **Pull Changes**:
    - If there are changes on the remote repository that you don't have locally, you can pull them by clicking "Fetch origin" or "Pull origin".
 
-7. **Sync Changes**:
+8. **Sync Changes**:
    - To synchronize your local repository with the remote repository, click "Sync" to push and pull changes in one step.
 
+9. **Create a Pull Request:**
+  - Go to the GitHub website and navigate to your fork of the repository.
+  - You should see a button to "Compare & pull request" between your fork and the original repository. Click on it.
+
+10. **Review and Submit:**
+   - On the pull request page, review your changes and add any additional information, such as a title and description, that you want to include with your pull request.
+   - Once you're satisfied, click the "Create pull request" button to submit your pull request.
+
+11. **Wait for Review:**
+    Your pull request will now be available for review by the project maintainers. They may provide feedback or ask for changes before merging your pull request into the main branch of the gitglance repository.
+
 That's it! You can now use GitHub Desktop to manage this repository efficiently.
+⭐️ Support the Project
+If you find this project helpful, please consider giving it a star on GitHub! Your support helps to grow the project and reach more contributors.
 
 ## **Pull Request Process 🚀**
 
