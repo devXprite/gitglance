@@ -26,7 +26,7 @@ const FollowUp = ({ follwoup }) => {
     const { issues_by_user, pr_by_user, issues_on_user, pr_on_user, login } = follwoup;
 
     return (
-        <GridContainer name="Follow Up" className={'grid-cols-2 gap-0 gap-y-6 px-2 md:grid-cols-4 md:gap-8 md:px-6'}>
+        <GridContainer name="Follow Up" className={'flex flex-row flex-wrap justify-evenly gap-0 gap-y-6 px-2 md:gap-8 md:px-6'}>
             <div>
                 <Doughnut
                     options={{ plugins: { title: { text: `Issues by ${login}` } } }}
