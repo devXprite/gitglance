@@ -75,7 +75,7 @@ export default async function Home() {
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Contributors</h2>
                 </div>
                 <div className="mb-10 px-4 md:px-12">
-                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                    <div className="grid grid-cols-2 max-w-screen-xl mx-auto  gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                         {ContributorsData.map((data, index) => (
                             <a
                                 key={index}
