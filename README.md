@@ -7,7 +7,7 @@
 </p>
 <br/>
 
-<p>GitGlance is a powerful tool for visualizing a developer's GitHub profile, showcasing their contributions, fields of expertise, and much more. With GitGlance, developers can gain insights into their GitHub activity in an intuitive and visually appealing manner.
+<p>Hellloo GitGlance is a powerful tool for visualizing a developer's GitHub profile, showcasing their contributions, fields of expertise, and much more. With GitGlance, developers can gain insights into their GitHub activity in an intuitive and visually appealing manner.
 </p>
 
 ## Features

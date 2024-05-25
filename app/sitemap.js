@@ -4,7 +4,7 @@ import RecentProfiles from '@/models/RecentProfiles';
 export default async function sitemap() {
     await connectDb();
     const recenetProfiles = await RecentProfiles.find({}).sort().limit(250);
-    const baseUrl = process.env.BASE_URL;
+    const baseUrl = process.env.;
 
     const sitemapProfils = recenetProfiles.map(profile => ({
         url: `${baseUrl}/${profile.username}`,
