@@ -7,7 +7,7 @@
 </p>
 <br/>
 
-<p>Hellloo GitGlance is a powerful tool for visualizing a developer's GitHub profile, showcasing their contributions, fields of expertise, and much more. With GitGlance, developers can gain insights into their GitHub activity in an intuitive and visually appealing manner.
+<p>GitGlance is a powerful tool for visualizing a developer's GitHub profile, showcasing their contributions, fields of expertise, and much more. With GitGlance, developers can gain insights into their GitHub activity in an intuitive and visually appealing manner.
 </p>
 
 ## Features
@@ -49,15 +49,23 @@ To run GitGlance locally, follow these steps:
    ```bash
     GITHUB_TOKEN=
    ```
-5. Install dependencies:
+5. Paste "https://github.com/" in BASE_URL in .env file created above
+   ```bash
+   BASE_URL= "https://github.com/"
+   ```
+6. Connect to your MONGODB Atlas Server in MONGODB_URI (Example given below):
+    ```bash
+    MONGODB_URI = mongodb+srv://<USERNAME>:<PASSWORD>@gitglancedb.0jcw2en.mongodb.net/?retryWrites=true&w=majority&appName=GitGlanceDB
+    ```  
+7. Install dependencies:
     ```bash
     npm install
     ```
-6. Start the development server:
+8. Start the development server:
     ```bash
     npm run dev
     ```
-7. Open your browser and visit `http://localhost:3000`
+9. Open your browser and visit `http://localhost:3000`
    
     
     
