@@ -59,11 +59,11 @@ export default async function Home() {
                                         alt={profile.username}
                                         className="size-10 grow-0 rounded-full md:size-12"
                                     />
-                                    <div>
+                                    <div style={{overflowWrap:'anywhere'}}>
                                         <p className="text-base font-semibold md:text-lg">
                                             {profile.name ?? profile.username}
                                         </p>
-                                        <p className="-mt-1 text-sm text-gray-400 md:text-base">@{profile.username}</p>
+                                        <p  className="-mt-1 text-sm text-gray-400 md:text-base">@{profile.username}</p>
                                     </div>
                                 </Link>
                             ))}
