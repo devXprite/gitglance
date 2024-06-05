@@ -45,19 +45,24 @@ To run GitGlance locally, follow these steps:
     ```bash
     cp .env.example .env
     ```
-4. Open the .env file and add your GitHub Personal Access Token:
+4. Open the .env file and add your
+   - GitHub Personal Access Token
+   - MongoDB URI
+
    ```bash
     GITHUB_TOKEN=
+    MONGODB_URI=mongodb://localhost:27017/<dbname>
+    BASE_URL=http://localhost:3000
    ```
-5. Install dependencies:
+6. Install dependencies:
     ```bash
     npm install
     ```
-6. Start the development server:
+7. Start the development server:
     ```bash
     npm run dev
     ```
-7. Open your browser and visit `http://localhost:3000`
+8. Open your browser and visit `http://localhost:3000`
    
     
     
