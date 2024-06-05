@@ -3,13 +3,13 @@ import RecentProfiles from '@/models/RecentProfiles';
 
 export default async function sitemap() {
     await connectDb();
-    const recenetProfiles = await RecentProfiles.find({}).sort().limit(250);
+    const recenetProfiles = await RecentProfiles.find({}).sort().limit(1000);
     const baseUrl = process.env.BASE_URL;
 
     const sitemapProfils = recenetProfiles.map(profile => ({
         url: `${baseUrl}/${profile.username}`,
-        changefreq: 'monthly',
-        priority: 0.7,
+        changefreq: 'weekly',
+        priority: 0.9,
     }));
 
     const sitemap = [

@@ -59,38 +59,6 @@
     }
 }
 
-.github-corner {
-    &:hover {
-        .octo-arm {
-            animation: octocat-wave 560ms ease-in-out;
-        }
-    }
-
-    @media (max-width: 500px) {
-        &:hover .octo-arm {
-            animation: none;
-        }
-        & .octo-arm {
-            animation: octocat-wave 560ms ease-in-out;
-        }
-    }
-
-    @keyframes octocat-wave {
-        0%,
-        100% {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-}
-
 .level {
     @apply h-2 w-full cursor-pointer transition-all hover:scale-125 hover:border hover:border-white lg:h-3 lg:rounded-[1px];
     &-NONE {
