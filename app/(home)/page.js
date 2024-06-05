@@ -6,6 +6,8 @@ import Link from 'next/link';
 import GridContainer from '@/components/GridContainer';
 import { unstable_noStore as noStore } from 'next/cache';
 import Header from '@/components/Header';
+import { ContributorsData } from './contributors';
+import Image from 'next/image';
 
 export default async function Home() {
     noStore();
@@ -13,7 +15,7 @@ export default async function Home() {
 
     try {
         await connectDb();
-        recenetProfiles = await RecentProfiles.find({ }).sort({ updatedAt: 'desc' }).limit(8);
+        recenetProfiles = await RecentProfiles.find({}).sort({ updatedAt: 'desc' }).limit(8);
     } catch (error) {
         console.log('An error occurred in Home Page while fetching recent profiles');
     }
@@ -68,6 +70,35 @@ export default async function Home() {
                         </GridContainer>
                     </div>
                 )}
+
+                <div className="mb-8 mt-16 text-center">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Contributors</h2>
+                </div>
+                <div className="mb-10 px-4 md:px-12">
+                    <div className="grid grid-cols-2 max-w-screen-xl mx-auto  gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                        {ContributorsData.map((data, index) => (
+                            <a
+                                key={index}
+                                href={data.github}
+                                target="_blank"
+                                className="group rounded-lg p-4 shadow-sm transition-all duration-300"
+                            >
+                                <div className="relative overflow-hidden rounded-lg">
+                                    <Image
+                                        alt={data.name}
+                                        className="h-full w-full object-cover object-center transition-all duration-500 group-hover:scale-110"
+                                        src={data.imageUrl}
+                                        width={400}
+                                        height={400}
+                                    />
+                                </div>
+                                <div className="mt-4 text-center">
+                                    <h3 className="text-lg font-semibold">{data.name}</h3>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </main>
         </>
     );

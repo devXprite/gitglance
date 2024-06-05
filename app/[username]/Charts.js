@@ -18,7 +18,7 @@ const borderColor = [
 
 const Charts = ({ commitsPerRepo, starsPerRepo, reposPerLanguages, starsPerLanguages }) => {
     return (
-        <GridContainer name="Charts" className={'grid-cols-2 gap-0 gap-y-6 px-2 md:grid-cols-4 md:gap-8 md:px-6'}>
+        <GridContainer name="Charts" className={'flex flex-row flex-wrap justify-evenly gap-0 gap-y-6 px-2 md:gap-8 md:px-6'}>
             <div className="">
                 <Doughnut
                     title="Commits per Repo"
